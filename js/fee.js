@@ -5,7 +5,7 @@ gsap.to("#page1 #name", {
         scroller:"body",
         start: "top 0%",
         end: "bottom -200%",
-        scrub:1,
+        scrub:2,
         pin:true
     }
 });

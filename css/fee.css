@@ -129,6 +129,7 @@ body::-webkit-scrollbar-thumb {
     font-family: "Josefin Sans";
     font-size: 27rem;
     background: linear-gradient(to right, rgb(255, 94, 0), rgb(255, 94, 0), #FF0000, #FF0000);
+    background-clip: padding-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -391,6 +392,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 #footer-logo {
@@ -441,11 +443,24 @@ hr {
     }
 }
 
-@media only screen and (max-width:400px){
+@media only screen and (max-width:500px){
     #bar{
         max-width: 100%;
     }
     #name{
         font-size: 20rem;
+    }
+    #page2-heading{
+        text-align: center;
+    }
+    #meet-team{
+        justify-content: center;
+    }
+    #footer{
+        justify-content: center;
+    }
+    #footer2-ele1{
+        justify-content: center;
+        gap: 10px;
     }
 }
