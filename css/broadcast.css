@@ -1,0 +1,456 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: black;
+}
+
+#outer-nav {
+    /* border: 1px solid; */
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#inner-nav {
+    height: 100%;
+    width: 80%;
+}
+
+#nav {
+    width: 97%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-logo {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+#nav-logo img {
+    width: 41px;
+    height: 61px;
+}
+
+#profile {
+    width: 35px;
+    height: 35px;
+    border: 2px solid;
+    border-radius: 20px;
+    background-color: transparent;
+}
+
+#profile:hover {
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+#profile img {
+    width: 100%;
+}
+
+#page1 {
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.sideBar {
+    border: none;
+    /* border: 1px solid; */
+    background-color: rgba(255, 255, 255, 0.085);
+    border-radius: 15px;
+    height: 100%;
+    width: 900px;
+}
+
+#sideBar1 {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inner-sidebar1 {
+    height: 90%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.sidebar1-ele {
+    width: 99%;
+    height: 50px;
+    border-radius: 29px;
+}
+
+.sidebar1-ele-btn {
+    /* justify-content: start; */
+    /* width: 100%; */
+    /* gap: 40px; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    gap: 26px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    font-family: 'Josefin Sans';
+}
+
+.sidebar1-ele:hover {
+    border: 2px solid white;
+    border-radius: 29px;
+    background-color: #ffffff24;
+    /* color: black; */
+    transition: all 0.4s ease-in-out;
+}
+
+#sidebar1-ele7 {
+    border: 2px solid;
+    background-color: #ffffffd8;
+}
+
+#sidebar1-ele7-btn {
+    color: rgb(0, 0, 0);
+    width: 99%;
+    height: 50px;
+    justify-content: center;
+    border-radius: 29px;
+    gap: 26px;
+    background-color: transparent;
+}
+
+#sidebar1-ele7:hover {
+    background-color: gray;
+}
+
+#sideBar2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-sideBar2 {
+    /* border: 1px solid gray; */
+    width: 96.5%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    overflow-y: auto;
+    display: none;
+}
+
+#home-sideBar2 {
+    display: flex;
+}
+
+.inner-sideBar2::-webkit-scrollbar {
+    width: 5px;
+}
+
+.inner-sideBar2::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.549);
+    border-radius: 10px;
+}
+
+.sidebar2-ele {
+    width: 100%;
+    min-height: 250px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    padding-left: 30px;
+}
+
+#writer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#writer p {
+    font-weight: 300;
+    font-family: 'Josefin Sans';
+    color: rgb(208, 208, 208);
+}
+
+
+#title p {
+    font-family: 'Josefin Sans';
+    font-size: 2rem;
+}
+
+#destination {
+    font-size: 1.3rem;
+    font-family: 'Josefin Sans';
+}
+
+#time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+}
+
+#time p {
+    font-weight: 300;
+    font-family: 'Josefin Sans';
+    font-size: 1.1rem;
+}
+
+#time button {
+    margin-right: 40px;
+    height: 100%;
+    width: 130px;
+    background-color: rgba(255, 255, 255, 0.159);
+    border: none;
+    border-radius: 15px;
+    color: rgba(255, 255, 255, 0.73);
+    font-weight: 400;
+    font-family: 'Josefin Sans';
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#time button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all 0.5s ease-in-out;
+}
+
+.inner-profile-sideBar2-ele {
+    /* border: 1px solid; */
+    background-color: black;
+    border-radius: 10px;
+    width: 96.5%;
+    min-height: 200px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 50px;
+}
+
+
+#inner-profile-pic {
+    border: 3px solid;
+    width: 15%;
+    height: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    margin-left: 70px;
+}
+
+#inner-profile-pic img {
+    width: 95%;
+}
+
+#inner-profile-username{
+    /* border: 1px solid; */
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#inner-profile-username h2,#inner-profile-username p span{
+    font-size: 2rem;
+    color: rgb(222, 222, 222);
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+}
+
+#inner-profile-username p{
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+}
+
+#inner-profile-username p span{
+    font-size: 1rem;
+}
+
+
+#inner-profile-sideBar2-ele2 {
+    height: 290px;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 10px;
+    gap: 10px;
+}
+
+#posts-head {
+    height: 10%;
+}
+
+#posts {
+    background-color: rgba(255, 255, 255, 0.085);
+    border-radius: 10px;
+    width: 95%;
+    height: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#outer-post-form {
+    top: 0;
+    position: absolute;
+    background-color: rgb(81 81 81 / 59%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+#inner-post-form {
+    background-color: black;
+    width: 415px;
+    height: 71%;
+    border-radius: 29px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px gray;
+}
+
+#outer-cross {
+    /* border: 1px solid; */
+    width: 100%;
+    height: 9%;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+}
+
+#cross-btn {
+    border: none;
+    width: 9%;
+    height: 90%;
+    border-top-right-radius: 28px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#cross-btn img {
+    width: 60%;
+    height: 60%;
+}
+
+#cross-btn:hover {
+    background-color: rgb(153, 0, 0);
+}
+
+#post-form {
+    width: 95%;
+    height: 91%;
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+
+
+#post-form input,
+#post-category,
+#post-category option {
+    width: 80%;
+    height: 10%;
+    border-radius: 15px;
+    border: 3px solid rgb(193 193 193);
+    padding-left: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 1.05rem;
+    background-color: rgba(255, 255, 255, 0.204);
+    font-weight: 400;
+    font-family: 'Josefin Sans';
+}
+
+#post-category option {
+    background-color: black;
+}
+
+#post-category,
+#post-category option {
+    width: 82.5%;
+}
+
+#post-form input:focus,
+#post-category:focus,
+#post-category option:focus {
+    outline: none;
+    border: 3px solid rgb(255, 89, 0);
+}
+
+#post-submit-btn {
+    width: 40%;
+    height: 40px;
+    font-size: 1.3rem;
+    border-radius: 50px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    color: black;
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Josefin Sans';
+}
+
+#post-submit-btn:hover {
+    background-color: rgb(255, 89, 0);
+    transition: all 0.4s ease-in-out;
+}

@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: black;
+}
+
+#outer-nav {
+    /* border: 1px solid; */
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#inner-nav {
+    height: 100%;
+    width: 80%;
+}
+
+#nav {
+    width: 97%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#nav-logo {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+#nav-logo img {
+    width: 41px;
+    height: 61px;
+}
+
+#profile {
+    width: 35px;
+    height: 35px;
+    border: 2px solid;
+    border-radius: 20px;
+}
+
+#profile a,
+#profile a img {
+    width: 100%;
+}
+
+#outer-main-page {
+    width: 100%;
+    height: 84vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-page {
+    width: 900px;
+    height: 95%;
+    background-color: rgba(255, 255, 255, 0.085);
+    border-radius: 20px;
+}
+
+#main-page1 {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inner-main-page1 {
+    width: 80%;
+    height: 90%;
+    /* border: 1px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.inner-main-page1-ele {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 61%;
+    height: 10%;
+    border-radius: 27px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    gap: 10px;
+}
+
+#inner-main-page1-ele6 {
+    background-color: white;
+    color: black;
+    border: 2px solid white;
+}
+
+.inner-main-page1-ele:hover {
+    border: 2px solid white;
+    background-color: rgba(48, 48, 48, 0.818);
+    transition: all 0.4s ease-in-out;
+}
+
+#inner-main-page1-ele6:hover {
+    border: 2px solid white;
+    background-color: rgba(166, 166, 166, 0.818);
+    transition: all 0.4s ease-in-out;
+}
+
+#main-page2 {
+    background-color: rgba(0, 0, 0, 0.085);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.inner-main2-page {
+    width: 100%;
+    border-radius: 20px;
+    height: 81%;
+    background-color: rgba(255, 255, 255, 0.085);
+}
+
+#inner-main2-page1 {
+    height: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+#inner-main2-page1 form {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#inner-main2-page1 form select,
+#inner-main2-page1 form select option {
+    color: rgb(178, 178, 178);
+    width: 30%;
+    height: 50%;
+    border-radius: 20px;
+    padding-left: 20px;
+    background-color: black;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#inner-main2-page1 form select:focus {
+    outline: none;
+}
+
+#inner-main2-page1 form button {
+    width: 15%;
+    background-color: black;
+    border: 2px solid rgb(174, 174, 174);
+    height: 50%;
+    border-radius: 20px;
+    font-size: 1rem;
+    color: rgb(204, 204, 204);
+    cursor: pointer;
+}
+
+#inner-main2-page1 form button:hover {
+    background-color: rgb(44, 44, 44);
+    color: white;
+    transition: all 0.4s ease-in-out;
+}
+
+
+#inner-main2-page2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    overflow-y: scroll;
+}
+
+#inner-main2-page2::-webkit-scrollbar {
+    width: 7px;
+}
+
+#inner-main2-page2::-webkit-scrollbar-thumb {
+    background-color: gray;
+    border-radius: 10px;
+    width: 5px;
+}
+
+.outer-cars {
+    width: 200px;
+    height: 320px;
+    background-color: black;
+    border-radius: 10px;
+    margin: 15px 0 0 14px;
+}
+
+.outer-cars {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.outer-cars img {
+    height: 55%;
+    max-width: 90%;
+}
+
+.outer-cars p{
+    font-size: 1.1rem;
+}
+
+.outer-cars button {
+    height: 10%;
+    width: 70%;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.outer-cars button:hover{
+    background-color: #333;
+}

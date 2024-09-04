@@ -1,0 +1,451 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    list-style: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body {
+    background-color: black;
+}
+
+body::-webkit-scrollbar {
+    background-color: transparent;
+    width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #ff5900;
+    border-radius: 4px;
+}
+
+#logo {
+    width: 90px;
+    height: 80px;
+}
+
+#outer-navbar {
+    /* border: 1px solid white; */
+    width: 99.9%;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inner-nav {
+    /* border: 1px solid white; */
+    width: 97%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#outer-search-bar {
+    height: 45%;
+    background-color: rgb(70, 70, 70);
+    opacity: 0.3;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 270px;
+}
+
+#search-bar {
+    background-color: transparent;
+    width: 80%;
+    border: none;
+    height: 100%;
+    font-size: 0.98rem;
+    margin: 3px;
+}
+
+#search-bar::placeholder {
+    color: white;
+}
+
+#search-bar:focus {
+    outline: none;
+}
+
+#search-btn {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#bar {
+    /* border: 1px solid wheat; */
+    max-width: 360px;
+    width: 500px;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.bar-ele {
+    /* border: 1px solid wheat; */
+    width: 19%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.bar-ele:hover {
+    border-bottom: 1px solid rgb(255, 60, 0);
+    transition: all 0.6s ease-in-out;
+}
+
+#page1 {
+    height: 85vh;
+    display: flex;
+    align-items: end;
+    overflow: hidden;
+    transform: translateX(0%);
+}
+
+#name {
+    font-family: "Josefin Sans";
+    font-size: 27rem;
+    background: linear-gradient(to right, rgb(255, 94, 0), rgb(255, 94, 0), #FF0000, #FF0000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#page2 {
+    /* border: 1px solid white; */
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px 0 0 0;
+    gap: 40px;
+}
+
+#page2-heading {
+    font-size: 5rem;
+    font-weight: 200;
+    font-family: 'Josefin Sans';
+}
+
+#meet-team {
+    /* border: 1px solid orange; */
+    width: 90%;
+    /* height: 80vh; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.team-mem {
+    height: 80vh;
+    border-bottom: 2px solid rgb(255, 94, 0);
+    border-top: 2px solid rgb(255, 94, 0);
+    width: 300px;
+    /* height: 90%; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.team-mem h2 {
+    position: relative;
+    bottom: 40%;
+    right: 20%;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+    font-family: "Josefin Sans";
+    font-weight: 200;
+    font-size: 1.5rem;
+}
+
+#team-mem2 h2 {
+    position: relative;
+    bottom: 35%;
+    right: 20%;
+}
+
+#team-mem1 {
+    border-left: 2px solid rgb(255, 94, 0);
+}
+
+#team-mem4 {
+    border-right: 2px solid rgb(255, 94, 0);
+}
+
+.team-mem:hover {
+    background-color: rgb(255, 94, 0);
+    transition: background-color 1s ease-in-out;
+}
+
+.team-mem img {
+    height: 100%;
+    width: 100%;
+    filter: grayscale(10);
+    margin-top: 40px;
+}
+
+.team-mem img:hover {
+    filter: grayscale(0) drop-shadow(-10px 10px 10px rgb(57, 34, 0)) drop-shadow(10px -5px 10px rgb(255, 174, 120));
+    z-index: 1;
+    transition: filter 1.2s ease-in-out;
+}
+
+#team-mem2 img {
+    width: 80%;
+    height: 90%;
+}
+
+#team-mem3 img {
+    width: 90%;
+    height: 100%;
+}
+
+#team-mem4 img {
+    width: 95%;
+    height: 91%;
+    margin-top: 75px;
+}
+
+#explore {
+    /* border: 1px solid white; */
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 460px;
+}
+
+#explore-btn {
+    background-color: transparent;
+    border: 2px solid gray;
+    width: 300px;
+    height: 30%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#explore-btn:hover {
+    border: 2px solid rgb(255, 94, 0);
+    cursor: pointer;
+    background-color: rgb(255, 94, 0);
+    transition: all 0.6s ease-in-out;
+}
+
+#mostouter-getInTouch {
+    /* border: 1px solid white; */
+    height: 99vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#outer-getInTouch {
+    /* border: 1px solid white; */
+    height: 80%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#getInTouch-head {
+    font-size: 2.5rem;
+    color: white;
+    font-family: 'Josefin Sans';
+    font-weight: 300;
+}
+
+#GIT-outer-form {
+    /* border: 1px solid white; */
+    width: 85%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    /* border: 1px solid white ; */
+    width: 88%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+form input {
+    width: 270px;
+    height: 39px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+}
+
+form input:focus {
+    outline: none;
+    border-bottom: 1px solid rgb(255, 60, 0);
+    transition: all 0.5s ease-in-out;
+}
+
+textarea {
+    width: 97%;
+    background-color: transparent;
+    border: 1px solid gray;
+    font-weight: 600;
+    padding: 10px;
+    resize: none;
+    color: white;
+    font-size: 1rem;
+}
+
+textarea:focus {
+    outline: none;
+    border: 1px solid rgb(255, 60, 0);
+    transition: all 0.5s ease-in-out;
+}
+
+#inner-form {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+#form-btn {
+    color: white;
+    border: 2px solid rgba(103, 103, 103, 0.8);
+    background-color: transparent;
+    margin: 46px 0 0 0;
+    height: 40px;
+    width: 138px;
+    font-size: 0.9rem;
+}
+
+#form-btn:hover {
+    border: 2px solid rgb(255, 94, 0);
+    cursor: pointer;
+    background-color: rgb(255, 94, 0);
+    transition: all 0.6s ease-in-out;
+}
+
+
+/* Footer start from here ---> */
+
+#outer-footer {
+    border-top: 1px solid rgb(54, 54, 54);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-footer {
+    height: 50%;
+    width: 80%;
+}
+
+hr {
+    width: 80%;
+}
+
+#footer {
+    width: 97%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#footer-logo {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#footer-logo img {
+    width: 40px;
+    height: 50px;
+}
+
+#inner-footer2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer2-ele1 {
+    width: 25%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#footer2-ele1 a img {
+    width: 35px;
+    border-radius: 10px;
+}
+
+#footer2-ele1 a img:hover {
+    background-color: rgb(51, 51, 51);
+    transition: all 0.6s ease-in-out;
+}
+
+
+
+
+
+@media only screen and (max-width:900px) and (min-width:800px){
+    .team-mem{
+        width: 350px;
+    }
+}
+
+@media only screen and (max-width:400px){
+    #bar{
+        max-width: 100%;
+    }
+    #name{
+        font-size: 20rem;
+    }
+}
