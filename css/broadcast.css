@@ -78,7 +78,7 @@ body {
     /* border: 1px solid; */
     background-color: rgba(255, 255, 255, 0.085);
     border-radius: 15px;
-    height: 100%;
+    height: 73vh;
     width: 900px;
 }
 
@@ -87,6 +87,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 #inner-sidebar1 {
@@ -150,10 +151,31 @@ body {
     background-color: gray;
 }
 
+#nav-btn {
+    border: none;
+    width: 100%;
+    height: 55px;
+    cursor: pointer;
+    /* background-color: rgb(255 255 255 / 14%); */
+    background-color: transparent;
+    border-radius: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: 10px;
+    display: none;
+}
+
+#nav-btn img {
+    /* width: 70%; */
+    height: 70%;
+}
+
 #sideBar2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 }
 
 .inner-sideBar2 {
@@ -279,7 +301,7 @@ body {
     width: 95%;
 }
 
-#inner-profile-username{
+#inner-profile-username {
     /* border: 1px solid; */
     height: 50%;
     display: flex;
@@ -287,26 +309,27 @@ body {
     justify-content: space-around;
 }
 
-#inner-profile-username h2,#inner-profile-username p span{
+#inner-profile-username h2,
+#inner-profile-username p span {
     font-size: 2rem;
     color: rgb(222, 222, 222);
     font-family: 'Josefin Sans';
     font-weight: 300;
 }
 
-#inner-profile-username p{
+#inner-profile-username p {
     display: flex;
     justify-content: center;
     gap: 36px;
 }
 
-#inner-profile-username p span{
+#inner-profile-username p span {
     font-size: 1rem;
 }
 
 
 #inner-profile-sideBar2-ele2 {
-    height: 290px;
+    height: 75%;
     flex-direction: column;
     justify-content: start;
     padding-top: 10px;
@@ -323,21 +346,6 @@ body {
     width: 95%;
     height: 80%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #outer-post-form {
     top: 0;
@@ -404,8 +412,6 @@ body {
     gap: 5px;
 }
 
-
-
 #post-form input,
 #post-category,
 #post-category option {
@@ -453,4 +459,72 @@ body {
 #post-submit-btn:hover {
     background-color: rgb(255, 89, 0);
     transition: all 0.4s ease-in-out;
+}
+
+
+
+
+@media only screen and (max-width:900px) {
+    #inner-sidebar1 {
+        width: 70%;
+    }
+
+    #inner-profile-pic {
+        width: 131px;
+    }
+}
+
+@media only screen and (max-width:430px) {
+    #page1 {
+        flex-direction: column;
+        height: 85vh;
+        justify-content: start;
+    }
+
+    #inner-sidebar1 {
+        width: 100%;
+        align-items: center;
+    }
+
+    #sideBar1 {
+        width: 90%;
+        height: 88%;
+    }
+
+    .sidebar1-ele {
+        display: none;
+        width: 70%;
+    }
+
+    .inner-sideBar2 {
+        height: 68vh;
+    }
+
+    #sideBar2 {
+        width: 90%;
+        height: 80vh;
+        padding-bottom: 10px;
+    }
+
+    .inner-profile-sideBar2-ele {
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    #inner-profile-pic {
+        width: 70px;
+        height: 70px;
+        margin-left: 0;
+    }
+
+
+    #inner-profile-username {
+        height: 37%;
+    }
+
+    #nav-btn {
+        display: flex;
+        width: 100%;
+    }
 }

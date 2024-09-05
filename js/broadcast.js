@@ -7,6 +7,7 @@ let gaming = document.getElementById('gaming-sideBar2')
 let profile = document.getElementById('profile-sideBar2')
 let post = document.getElementById('sidebar1-ele7-btn')
 let profileLogo = document.getElementById('profile')
+let navBtn = document.getElementById('nav-btn')
 
 
 let homeBtn = document.getElementById('home-btn')
@@ -75,4 +76,20 @@ post.addEventListener('click', function () {
 
 crossBtn.addEventListener('click', function () {
     document.getElementById('outer-post-form').style.display = 'none'
+})
+
+navBtn.addEventListener('click', function () {
+    let navEle = document.getElementsByClassName('sidebar1-ele')
+    for (i = 0; i < navEle.length; i++) {
+        if (navEle[i].style.display != 'flex') {
+            navEle[i].style.display = 'flex'
+            document.getElementById('page1').style.height = '180vh'
+            document.getElementById('sideBar1').style.height = '45%'
+        }
+        else {
+            navEle[i].style.display = 'none'
+            document.getElementById('page1').style.height = '85vh'
+            document.getElementById('sideBar1').style.height = '55px'
+        }
+    }
 })
