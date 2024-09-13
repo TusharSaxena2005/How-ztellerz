@@ -467,4 +467,7 @@ hr {
         width: 200px;
         font-size: 1rem;
     }
+    #page1{
+        display: none;
+    }
 }
