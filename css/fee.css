@@ -245,8 +245,7 @@ body::-webkit-scrollbar-thumb {
 #explore-btn {
     background-color: transparent;
     border: 2px solid gray;
-    max-width: 200px;
-    min-width: 300px;
+    width: 300px;
     height: 30%;
     font-size: 2rem;
     display: flex;
@@ -463,5 +462,9 @@ hr {
     #footer2-ele1{
         justify-content: center;
         gap: 10px;
+    }
+    #explore-btn{
+        width: 200px;
+        font-size: 1rem;
     }
 }
