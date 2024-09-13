@@ -463,11 +463,17 @@ hr {
         justify-content: center;
         gap: 10px;
     }
-    #explore-btn{
-        width: 200px;
-        font-size: 1rem;
+    #explore{
+        width: 100%;
     }
-    #page1{
-        display: none;
+}
+
+@media only screen and (max-width:360px){
+    #inner-nav {
+        justify-content: center;
+        gap: 10px;
+    }
+    .bar-ele{
+        width: 25%;
     }
 }
