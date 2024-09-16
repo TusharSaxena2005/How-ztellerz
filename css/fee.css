@@ -437,43 +437,63 @@ hr {
 
 
 
-@media only screen and (max-width:900px) and (min-width:800px){
-    .team-mem{
+@media only screen and (max-width:900px) and (min-width:800px) {
+    .team-mem {
         width: 350px;
     }
 }
 
-@media only screen and (max-width:500px){
-    #bar{
+@media only screen and (max-width:500px) {
+
+    #outer-navbar {
+        height: 20vh;
+    }
+
+    #inner-nav {
+        height: 86%;
+    }
+
+    #bar {
         max-width: 100%;
     }
-    #name{
-        font-size: 20rem;
+
+    #page1{
+        height: 70vh;
     }
-    #page2-heading{
+
+    #name {
+        font-size: 15rem;
+    }
+
+    #page2-heading {
         text-align: center;
     }
-    #meet-team{
+
+    #meet-team {
         justify-content: center;
     }
-    #footer{
+
+    #footer {
         justify-content: center;
     }
-    #footer2-ele1{
+
+    #footer2-ele1 {
         justify-content: center;
         gap: 10px;
     }
-    #explore{
+
+    #explore {
         width: 100%;
     }
 }
 
-@media only screen and (max-width:360px){
+@media only screen and (max-width:360px) {
     #inner-nav {
         justify-content: center;
         gap: 10px;
     }
-    .bar-ele{
+
+    .bar-ele {
         width: 25%;
     }
 }
