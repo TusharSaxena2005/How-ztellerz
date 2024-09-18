@@ -441,6 +441,16 @@ hr {
     .team-mem {
         width: 350px;
     }
+    form input {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width:770px) {
+    form input {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width:500px) {
@@ -457,7 +467,7 @@ hr {
         max-width: 100%;
     }
 
-    #page1{
+    #page1 {
         height: 70vh;
     }
 
@@ -483,6 +493,15 @@ hr {
     }
 
     #explore {
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    textarea {
+        margin-top: 10px;
         width: 100%;
     }
 }
