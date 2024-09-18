@@ -441,6 +441,7 @@ hr {
     .team-mem {
         width: 350px;
     }
+
     form input {
         width: 100%;
     }
@@ -451,7 +452,12 @@ hr {
     form input {
         width: 100%;
     }
+
+    #bar {
+        min-width: 100%;
+    }
 }
+
 
 @media only screen and (max-width:500px) {
 
@@ -506,7 +512,19 @@ hr {
     }
 }
 
-@media only screen and (max-width:360px) {
+@media only screen and (max-width:370px) {
+    #outer-navbar {
+        height: 30vh;
+    }
+
+    #outer-search-bar {
+        height: 53px;
+    }
+
+    #bar {
+        height: 30%;
+    }
+
     #inner-nav {
         justify-content: center;
         gap: 10px;
