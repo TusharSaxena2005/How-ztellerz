@@ -459,7 +459,7 @@ hr {
 }
 
 
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:670px) {
 
     #outer-navbar {
         height: 20vh;
@@ -499,8 +499,7 @@ hr {
     }
 
     #explore {
-        min-width: 300px;
-        max-width: 462px;
+        width: 100%;
     }
 
     form {
