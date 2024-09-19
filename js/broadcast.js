@@ -21,11 +21,19 @@ let profileBtn = document.getElementById('profile-btn')
 let crossBtn = document.getElementById('cross-btn')
 
 
+const viewportWidth = window.innerWidth;
+
+
+
+
 homeBtn.addEventListener('click', function () {
     for (let i = 0; i < allOptions.length; i++) {
         allOptions[i].style.display = 'none'
     }
     home.style.display = 'flex';
+    if (viewportWidth < 440) {
+        navOpenClose()
+    }
 })
 
 sportsBtn.addEventListener('click', function () {
@@ -33,6 +41,7 @@ sportsBtn.addEventListener('click', function () {
         allOptions[i].style.display = 'none'
     }
     sports.style.display = 'flex';
+
 })
 
 clubBtn.addEventListener('click', function () {
@@ -40,6 +49,9 @@ clubBtn.addEventListener('click', function () {
         allOptions[i].style.display = 'none'
     }
     club.style.display = 'flex';
+    if (viewportWidth < 440) {
+        navOpenClose()
+    }
 })
 
 libraryBtn.addEventListener('click', function () {
@@ -47,6 +59,9 @@ libraryBtn.addEventListener('click', function () {
         allOptions[i].style.display = 'none'
     }
     library.style.display = 'flex';
+    if (viewportWidth < 440) {
+        navOpenClose()
+    }
 })
 
 gamingBtn.addEventListener('click', function () {
@@ -54,6 +69,9 @@ gamingBtn.addEventListener('click', function () {
         allOptions[i].style.display = 'none'
     }
     gaming.style.display = 'flex';
+    if (viewportWidth < 440) {
+        navOpenClose()
+    }
 })
 
 profileBtn.addEventListener('click', function () {
@@ -61,6 +79,9 @@ profileBtn.addEventListener('click', function () {
         allOptions[i].style.display = 'none'
     }
     profile.style.display = 'flex';
+    if (viewportWidth < 440) {
+        navOpenClose()
+    }
 })
 
 profileLogo.addEventListener('click', function () {
@@ -78,7 +99,7 @@ crossBtn.addEventListener('click', function () {
     document.getElementById('outer-post-form').style.display = 'none'
 })
 
-navBtn.addEventListener('click', function () {
+function navOpenClose() {
     let navEle = document.getElementsByClassName('sidebar1-ele')
     for (i = 0; i < navEle.length; i++) {
         if (navEle[i].style.display != 'flex') {
@@ -92,4 +113,6 @@ navBtn.addEventListener('click', function () {
             document.getElementById('sideBar1').style.height = '55px'
         }
     }
-})
+}
+
+navBtn.addEventListener('click', navOpenClose)
