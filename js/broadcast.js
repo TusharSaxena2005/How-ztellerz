@@ -41,7 +41,9 @@ sportsBtn.addEventListener('click', function () {
         allOptions[i].style.display = 'none'
     }
     sports.style.display = 'flex';
-
+    if (viewportWidth < 440) {
+        navOpenClose()
+    }
 })
 
 clubBtn.addEventListener('click', function () {
