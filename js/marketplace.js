@@ -4,6 +4,28 @@ detailsBtn.forEach(button => {
         const product = e.target.closest('.outer-cars');
         const name = product.getAttribute('data-name');
         const price = product.getAttribute('data-price');
-        console.log(`${name} and ${price}`)
+        const floor = product.getAttribute('data-floor');
+        const room = product.getAttribute('data-room');
+        const hostel = product.getAttribute('data-hostel');
+        const category = product.getAttribute('data-category');
+        const sellerName = product.getAttribute('data-seller');
+        const contactNum = product.getAttribute('data-contact');
+
+
+
+        const detailBox = document.getElementById('details-box');
+        detailBox.style.display = 'flex';
+        const detailBoxClose = document.getElementById('detail-box-close');
+        detailBoxClose.addEventListener('click', function () {
+            detailBox.style.display = 'none';
+        })
+
+        document.getElementById('productName').innerText = name
+        document.getElementById('productPrice').innerText = price
+        document.getElementById('SellerName').innerText = sellerName
+        document.getElementById('SellerContact').innerText = contactNum
+        document.getElementById('hostelName').innerText = hostel
+        document.getElementById('floorNum').innerText = floor
+        document.getElementById('roomNum').innerText = room
     })
 })
