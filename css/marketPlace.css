@@ -379,6 +379,150 @@ body {
 }
 
 
+#add-item-box {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.053);
+    display: none;
+    /* display: flex; */
+    position: absolute;
+    top: 0;
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+}
+
+#inner-add-item-box {
+    width: 30%;
+    height: 78%;
+    background-color: black;
+    border-radius: 15px;
+    box-shadow: 0 0 21px #747474;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-item-box {
+    width: 100%;
+}
+
+#add-item-box1 {
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    height: 7.5%;
+    display: flex;
+    justify-content: end;
+}
+
+#add-item-box-close {
+    border-top-right-radius: 15px;
+    border: none;
+    width: 35px;
+    height: 90%;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#add-item-box-close:hover {
+    background-color: red;
+}
+
+#add-item-box2 {
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 91%;
+    display: flex;
+    justify-content: center;
+}
+
+#add-item-box2 form {
+    /* background-color: #747474; */
+    width: 85%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.formInput {
+    color: rgb(207, 205, 205);
+    width: 90%;
+    height: 10%;
+    border-radius: 15px;
+    padding: 0 0 0 10px;
+    font-size: 1rem;
+    border: 2px solid gray;
+    background-color: rgba(46, 46, 46, 0.833);
+}
+
+.formInput::placeholder {
+    color: rgb(207, 205, 205);
+}
+
+.formInput:focus {
+    outline: none;
+    border: 2px solid orangered;
+    transition: all 0.5s ease-in-out;
+}
+
+#add-item-box2 form select {
+    width: 93%;
+    height: 10.5%;
+}
+
+#add-item-box2 form select option {
+    color: rgb(255, 255, 255);
+}
+
+#add-item-box2 form div {
+    border-radius: 15px;
+    height: 15%;
+    border: 2px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 88%;
+    background-color: rgba(46, 46, 46, 0.833);
+    padding: 0 0 0 13px;
+}
+
+#add-item-box2 form div label {
+    color: rgb(207, 205, 205);
+    font-size: 1.05rem;
+}
+
+#image-input {
+    /* width: 86px; */
+    width: 100%;
+}
+
+#add-item-form-btn {
+    color: rgb(255, 255, 255);
+    border: 2px solid #919191;
+    background-color: rgba(0, 0, 0, 0.064);
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 17px 0 0 0;
+}
+
+#add-item-form-btn:hover{
+    background-color: rgb(40, 40, 40);
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
 @media only screen and (max-width:900px) {
     .outer-cars {
         width: 250px;

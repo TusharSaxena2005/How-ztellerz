@@ -1,3 +1,23 @@
+let addItemBtn = document.getElementById('inner-main-page1-ele6')
+let addItemForm = document.getElementById('add-item-box')
+let addItemFormClose = document.getElementById('add-item-box-close')
+
+
+function openAddItemForm() {
+    addItemForm.style.display = 'flex'
+}
+
+function closeAddItemForm() {
+    addItemForm.style.display = 'none'
+}
+
+addItemBtn.addEventListener('click', openAddItemForm)
+
+addItemFormClose.addEventListener('click', closeAddItemForm)
+
+
+
+
 let detailsBtn = document.querySelectorAll('.details-btn');
 detailsBtn.forEach(button => {
     button.addEventListener('click', function (e) {
@@ -29,3 +49,4 @@ detailsBtn.forEach(button => {
         document.getElementById('roomNum').innerText = room
     })
 })
+

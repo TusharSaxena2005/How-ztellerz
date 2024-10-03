@@ -45,10 +45,10 @@
                         Others</li>
                     <li id="inner-main-page1-ele7" class="inner-main-page1-ele">
                         Profile</li>
-                    <li id="inner-main-page1-ele6" class="inner-main-page1-ele">
+                    <button id="inner-main-page1-ele6" class="inner-main-page1-ele">
                         <img src="../images/plusIcon.svg" alt="">
                         <p id="add-item">Add item</p>
-                    </li>
+                    </button>
                 </ul>
             </div>
             <div id="main-page2" class="main-page">
@@ -146,6 +146,43 @@
         </div>
     </section>
 
+
+    <!-- Add item form pop up -->
+
+
+    <section id="add-item-box">
+        <div id="inner-add-item-box">
+            <div id="add-item-box1" class="add-item-box">
+                <button id="add-item-box-close">
+                    <img src="../images/cross.svg" alt="">
+                </button>
+            </div>
+            <div id="add-item-box2" class="add-item-box">
+                <form action="">
+                    <input type="text" class="formInput" placeholder="Enter product name">
+                    <input type="text" class="formInput" placeholder="Enter product price">
+                    <select class="formInput" name="productCategory" id="">
+                        <option value="" selected>Product category</option>
+                        <option value="chips">Chips</option>
+                        <option value="drinks">Drinks</option>
+                        <option value="biscuits">Biscuits</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div>
+                        <label for="image-input">Product image :</label>
+                        <input type="file" accept="image/*" id="image-input" name="image-input">
+                    </div>
+                    <button id="add-item-form-btn" type="submit">Add Item</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!--Product detail pop-up -->
+
     <section id="details-box">
         <div id="inner-details-box">
             <div id="detail-box1" class="detail-box">
@@ -161,7 +198,7 @@
                     <li id="detail-box2-ele1" class="detail-box2-ele">
                         <h2>Product details :-</h2>
                         <p id="productName">Blue Chips</p>
-                        <p ><span id="productPrice"></span> Rs.</p>
+                        <p><span id="productPrice"></span> Rs.</p>
                     </li>
                     <li id="detail-box2-ele2" class="detail-box2-ele">
                         <h2>Seller details :-</h2>
