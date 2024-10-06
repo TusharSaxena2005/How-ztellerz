@@ -159,9 +159,9 @@
             </div>
             <div id="add-item-box2" class="add-item-box">
                 <form action="">
-                    <input type="text" class="formInput" placeholder="Enter product name">
-                    <input type="text" class="formInput" placeholder="Enter product price">
-                    <select class="formInput" name="productCategory" id="">
+                    <input type="text" id="product-name" class="formInput" placeholder="Enter product name">
+                    <input type="text" id="product-price" class="formInput" placeholder="Enter product price">
+                    <select id="product-category" class="formInput" name="productCategory" id="">
                         <option value="" selected>Product category</option>
                         <option value="chips">Chips</option>
                         <option value="drinks">Drinks</option>
@@ -170,7 +170,7 @@
                     </select>
                     <div>
                         <label for="image-input">Product image :</label>
-                        <input type="file" accept="image/*" id="image-input" name="image-input">
+                        <input id="product-img" type="file" accept="image/*" id="image-input" name="image-input">
                     </div>
                     <button id="add-item-form-btn" type="submit">Add Item</button>
                 </form>
@@ -213,6 +213,38 @@
         </div>
     </section>
 
+    <!-- Filter in Mobile screen -->
+
+    <section id="filter-box">
+        <div id="inner-filter-box">
+            <div id="filter-close-btn">
+                <button id="filter-box-close">
+                    <img src="../images/cross.svg" alt="">
+                </button>
+            </div>
+            <form action="">
+                <select name="hostel" id="">
+                    <option value="" selected>Choose hostel</option>
+                    <option value="hostel1">Hostel 1</option>
+                    <option value="hostel1">Hostel 1</option>
+                    <option value="hostel1">Hostel 1</option>
+                    <option value="hostel1">Hostel 1</option>
+                </select>
+                <select name="floor" id="">
+                    <option value="" selected>Choose floor</option>
+                    <option value="floor1">Floor 1</option>
+                    <option value="floor1">Floor 2</option>
+                    <option value="floor1">Floor 3</option>
+                    <option value="floor1">Floor 4</option>
+                    <option value="floor1">Floor 5</option>
+                    <option value="floor1">Floor 6</option>
+                    <option value="floor1">Floor 7</option>
+                    <option value="floor1">Floor 8</option>
+                </select>
+                <button type="submit">Apply</button>
+            </form>
+        </div>
+    </section>
 
 
 

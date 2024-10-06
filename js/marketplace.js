@@ -2,7 +2,6 @@ let addItemBtn = document.getElementById('inner-main-page1-ele6')
 let addItemForm = document.getElementById('add-item-box')
 let addItemFormClose = document.getElementById('add-item-box-close')
 
-
 function openAddItemForm() {
     addItemForm.style.display = 'flex'
 }
@@ -14,6 +13,19 @@ function closeAddItemForm() {
 addItemBtn.addEventListener('click', openAddItemForm)
 
 addItemFormClose.addEventListener('click', closeAddItemForm)
+
+
+let filterBox = document.getElementById('filter-box')
+let filterBtnOpen = document.getElementById('filter-btn')
+let filterBtnClose = document.getElementById('filter-box-close')
+
+filterBtnOpen.addEventListener('click', function () {
+    filterBox.style.display = 'flex'
+})
+
+filterBtnClose.addEventListener('click', function () {
+    filterBox.style.display = 'none'
+})
 
 
 
@@ -50,3 +62,12 @@ detailsBtn.forEach(button => {
     })
 })
 
+
+let addItemFormBtn = document.getElementById('add-item-form-btn')
+
+addItemFormBtn.addEventListener('click', function () {
+    let productName = document.getElementById('product-name')
+    let productPrice = document.getElementById('product-price')
+    let productCategory = document.getElementById('product-category')
+    let productImg = document.getElementById('product-img')
+})

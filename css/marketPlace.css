@@ -514,11 +514,96 @@ body {
     margin: 17px 0 0 0;
 }
 
-#add-item-form-btn:hover{
+#add-item-form-btn:hover {
     background-color: rgb(40, 40, 40);
     transition: all 0.5s ease-in-out;
 }
 
+#filter-box {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#inner-filter-box {
+    width: 90%;
+    height: 50%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 10px gray;
+    border-radius: 15px;
+}
+
+#filter-close-btn {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: end;
+}
+
+#filter-close-btn button {
+    border-top-right-radius: 15px;
+    background-color: transparent;
+    border: none;
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#filter-close-btn button:hover {
+    background-color: red;
+}
+
+#inner-filter-box form {
+    height: 89%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+#inner-filter-box form select {
+    color: #ffffff;
+    width: 90%;
+    font-size: 1.2rem;
+    padding-left: 10px;
+    height: 60px;
+    border-radius: 21px;
+    border: 2px solid gray;
+    background-color: rgba(46, 46, 46, 0.833);
+}
+
+#inner-filter-box form select:focus {
+    outline: none;
+    border: 2px solid orangered;
+    transition: all 0.5s ease-in-out;
+}
+
+#inner-filter-box form button {
+    color: rgb(255, 255, 255);
+    width: 130px;
+    height: 35px;
+    background-color: black;
+    border: 2px solid gray;
+    border-radius: 14px;
+    margin-top: 15px;
+}
+#inner-filter-box form button:hover {
+    background-color: rgb(40, 40, 40);
+    transition: all 0.5s ease-in-out;
+}
 
 
 
@@ -538,6 +623,16 @@ body {
 
     #inner-main2-page1 form select option {
         font-size: 0.5rem;
+    }
+
+    #inner-details-box {
+        width: 600px;
+        height: 350px;
+    }
+
+    #inner-add-item-box {
+        width: 90%;
+        height: 70%;
     }
 }
 
@@ -580,5 +675,30 @@ body {
 
     #filter-btn {
         display: block;
+    }
+
+    #inner-details-box {
+        width: 90%;
+        height: 80%;
+        justify-content: start;
+    }
+
+    #detail-box1 {
+        height: 7%;
+    }
+
+    #detail-box2 {
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+    }
+
+    .inner-detail-box2 {
+        width: 90%;
+        height: 60%;
+    }
+
+    #inner1-detail-box2 {
+        height: 40%;
     }
 }
