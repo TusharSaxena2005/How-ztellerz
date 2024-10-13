@@ -6,8 +6,9 @@ let library = document.getElementById('library-sideBar2')
 let gaming = document.getElementById('gaming-sideBar2')
 let profile = document.getElementById('profile-sideBar2')
 let post = document.getElementById('sidebar1-ele7-btn')
-let profileLogo = document.getElementById('profile')
 let navBtn = document.getElementById('nav-btn')
+
+let logout = document.getElementById('logout')
 
 
 let homeBtn = document.getElementById('home-btn')
@@ -86,13 +87,6 @@ profileBtn.addEventListener('click', function () {
     }
 })
 
-profileLogo.addEventListener('click', function () {
-    for (let i = 0; i < allOptions.length; i++) {
-        allOptions[i].style.display = 'none'
-    }
-    profile.style.display = 'flex';
-})
-
 post.addEventListener('click', function () {
     document.getElementById('outer-post-form').style.display = 'flex'
 })
@@ -118,3 +112,16 @@ function navOpenClose() {
 }
 
 navBtn.addEventListener('click', navOpenClose)
+
+
+logout.addEventListener('click', function () {
+    console.log(localStorage)
+    for (let i = 1; i < localStorage.length; i++) {
+        let verifyRollNum = JSON.parse(localStorage[i])
+        if (verifyRollNum.logined == 1) {
+            verifyRollNum.logined = 0;
+            localStorage.setItem(i, JSON.stringify(verifyRollNum));
+            window.location = "../html/login.html"
+        }
+    }
+})

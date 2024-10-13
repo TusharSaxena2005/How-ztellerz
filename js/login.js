@@ -1,18 +1,22 @@
-document.getElementById('submit-btn').addEventListener('click',function (event){
+document.getElementById('submit-btn').addEventListener('click', function (event) {
     event.preventDefault();
     let rollno = document.getElementById('rollno').value
     let password = document.getElementById('password').value
-    if(localStorage.getItem(rollno)){
-        let data = JSON.parse(localStorage.getItem(rollno))
-        console.log(data)
-        if(data.password==password){
-            window.location = '../index.html'
+    for (i = 1; i < localStorage.length; i++) {
+        let verifyRollNum = JSON.parse(localStorage[i])
+        if (verifyRollNum.rollNum == rollno) {
+            if (verifyRollNum.password == password) {
+                verifyRollNum.logined = 1;
+                localStorage.setItem(i, JSON.stringify(verifyRollNum));
+                window.location = "../html/explore.html"
+            }
+            else {
+                alert('Invalid Password')
+            }
         }
         else{
-            alert('Invalid Password')
+            alert('Roll number not exist')
         }
     }
-    else{
-        alert("Roll no. does not exist")
-    }
 })
+

@@ -12,9 +12,9 @@
 
 <body>
     <main>
-        <img id="logo" src="../images/logo1.jpg" alt="">
+        <img id="logo" src="../images/logo1.jpg" alt=""> 
         <div id="main-block">
-            <form action="">
+            <form id="signup-form" action="">
                 <div>
                     <input id="username" type="text" placeholder="User Name">
                     <input id="rollno" type="number" placeholder="Roll No.">
@@ -31,15 +31,14 @@
                     <input id="floorNum" type="number" placeholder="Floor No. (Ex.:- 1)">
                     <input id="roomNum" type="number" placeholder="Room No. (Ex.:- 101)">
                 </div>
-                <button id="submit-btn">
+                <!-- Add type="button" to avoid form's default submission -->
+                <button id="submit-btn" type="button">
                     Submit
                 </button>
                 <a class="forgot" href="../html/login.html">Check in</a>
             </form>
         </div>
     </main>
-
-
 
     <script src="../js/signup.js"></script>
 </body>

@@ -48,20 +48,26 @@ body {
     height: 61px;
 }
 
-#profile {
-    width: 35px;
+#logout {
+    width: 100px;
     height: 35px;
     border: 2px solid;
     border-radius: 20px;
     background-color: transparent;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
 }
 
-#profile:hover {
+
+#logout:hover {
     box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
-#profile img {
-    width: 100%;
+#logout img {
+    width: 30%;
 }
 
 #page1 {
