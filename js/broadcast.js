@@ -25,12 +25,80 @@ let crossBtn = document.getElementById('cross-btn')
 const viewportWidth = window.innerWidth;
 
 
+function allBroadcast() {
+    document.getElementById('home-sideBar2').innerHTML = ''
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        let loginedPerson = dataFetched.logined
+        let username = dataFetched.username
+        let broadcasts = dataFetched.broadCast
+        if (broadcasts.length > 0) {
+            for (let j = 0; j < broadcasts.length; j++) {
+                if (loginedPerson==1) { 
+                    document.getElementById('home-sideBar2').innerHTML +=
+                    `
+        <li class="sidebar2-ele">
+                <div id="writer">
+                    <img src="../images/profileIcon.svg" alt="">
+                    <p>@${username}</p>
+                </div>
+                <div id="title">
+                    <p>${broadcasts[j].title}</p>
+                </div>
+                <div id="destination">
+                    <p>${broadcasts[j].destination}</p>
+                </div>
+                <div id="time">
+                    <p>${broadcasts[j].time}</p>
+                    <div>
+                        <button id="interested">I'm Interested</button>
+                        <button class="delete">
+                            <img src="../images/delete.svg" alt="">
+                        </button> 
+                    </div>
+                </div>
+            </li>
+        `;
+                }
+                else {
+                    document.getElementById('home-sideBar2').innerHTML +=
+                        `
+            <li class="sidebar2-ele">
+                    <div id="writer">
+                        <img src="../images/profileIcon.svg" alt="">
+                        <p>@${username}</p>
+                    </div>
+                    <div id="title">
+                        <p>${broadcasts[j].title}</p>
+                    </div>
+                    <div id="destination">
+                        <p>${broadcasts[j].destination}</p>
+                    </div>
+                    <div id="time">
+                        <p>${broadcasts[j].time}</p>
+                        <div>
+                            <button id="interested">I'm Interested</button>
+                            <!--<button class="delete">
+                                <img src="../images/delete.svg" alt="">
+                            </button>--> 
+                        </div>
+                    </div>
+                </li>
+            `;
+                }
+            }
+        }
+    }
+}
+
+allBroadcast();
 
 
 homeBtn.addEventListener('click', function () {
     for (let i = 0; i < allOptions.length; i++) {
         allOptions[i].style.display = 'none'
     }
+    allBroadcast()
     home.style.display = 'flex';
     if (viewportWidth < 440) {
         navOpenClose()
@@ -85,19 +153,31 @@ profileBtn.addEventListener('click', function () {
     if (viewportWidth < 440) {
         navOpenClose()
     }
+
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        if (dataFetched.logined == 1) {
+            document.getElementById('profile-username').innerHTML = dataFetched.username;
+            document.getElementById('rollno').innerHTML = dataFetched.rollNum;
+            document.getElementById('hostelName').innerHTML = dataFetched.hostelName;
+        }
+    }
+
 })
 
 post.addEventListener('click', function () {
     document.getElementById('outer-post-form').style.display = 'flex'
 })
 
-crossBtn.addEventListener('click', function () {
+function crossButton() {
     document.getElementById('outer-post-form').style.display = 'none'
-})
+}
+
+crossBtn.addEventListener('click', crossButton)
 
 function navOpenClose() {
     let navEle = document.getElementsByClassName('sidebar1-ele')
-    for (i = 0; i < navEle.length; i++) {
+    for (let i = 0; i < navEle.length; i++) {
         if (navEle[i].style.display != 'flex') {
             navEle[i].style.display = 'flex'
             document.getElementById('page1').style.height = '180vh'
@@ -115,7 +195,6 @@ navBtn.addEventListener('click', navOpenClose)
 
 
 logout.addEventListener('click', function () {
-    console.log(localStorage)
     for (let i = 1; i < localStorage.length; i++) {
         let verifyRollNum = JSON.parse(localStorage[i])
         if (verifyRollNum.logined == 1) {
@@ -124,4 +203,29 @@ logout.addEventListener('click', function () {
             window.location = "../html/login.html"
         }
     }
+})
+
+
+document.getElementById('post-submit-btn').addEventListener('click', function (event) {
+    event.preventDefault();
+    let postData = {
+        'title': document.getElementById('post-title').value,
+        'destination': document.getElementById('post-destination').value,
+        'time': document.getElementById('post-time').value,
+        'category': document.getElementById('post-category').value
+    }
+
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        if (dataFetched.logined == 1) {
+            dataFetched.broadCast.push(postData)
+            localStorage.setItem(i, JSON.stringify(dataFetched));
+        }
+    }
+    document.getElementById('post-title').value = ""
+    document.getElementById('post-destination').value = ""
+    document.getElementById('post-time').value = ""
+    document.getElementById('post-category').value = ""
+    allBroadcast();
+    crossButton();
 })

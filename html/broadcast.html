@@ -80,7 +80,7 @@
         </div>
         <div id="sideBar2" class="sideBar">
             <ul id="home-sideBar2" class="inner-sideBar2">
-                <li class="sidebar2-ele">
+                <!-- <li class="sidebar2-ele">
                     <div id="writer">
                         <img src="../images/profileIcon.svg" alt="">
                         <p>@username</p>
@@ -93,145 +93,14 @@
                     </div>
                     <div id="time">
                         <p>Time</p>
-                        <button>I'm Interested</button>
+                        <div>
+                            <button id="interested">I'm Interested</button>
+                            <button class="delete">
+                                <img src="../images/delete.svg" alt="">
+                            </button>
+                        </div>
                     </div>
-                </li>
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@tusharSaxena</p>
-                    </div>
-                    <div id="title">
-                        <p>Table Tennis</p>
-                    </div>
-                    <div id="destination">
-                        <p>Sportorium</p>
-                    </div>
-                    <div id="time">
-                        <p>10:00 P.M</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@paritoshJamwal</p>
-                    </div>
-                    <div id="title">
-                        <p>Valorant</p>
-                    </div>
-                    <div id="destination">
-                        <p>Remote</p>
-                    </div>
-                    <div id="time">
-                        <p>2:00 AM</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@ieee</p>
-                    </div>
-                    <div id="title">
-                        <p>All about Web3 (DLs will be provided)</p>
-                    </div>
-                    <div id="destination">
-                        <p>Einstein Hall</p>
-                    </div>
-                    <div id="time">
-                        <p>1:00 P.M</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@prabhav</p>
-                    </div>
-                    <div id="title">
-                        <p>Study MERN</p>
-                    </div>
-                    <div id="destination">
-                        <p>Library</p>
-                    </div>
-                    <div id="time">
-                        <p>3:00 P.M</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
-            </ul>
-            <ul id="sports-sideBar2" class="inner-sideBar2">
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@tusharSaxena</p>
-                    </div>
-                    <div id="title">
-                        <p>Table Tennis</p>
-                    </div>
-                    <div id="destination">
-                        <p>Sportorium</p>
-                    </div>
-                    <div id="time">
-                        <p>10:00 P.M</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
-            </ul>
-            <ul id="club-sideBar2" class="inner-sideBar2">
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@ieee</p>
-                    </div>
-                    <div id="title">
-                        <p>All about Web3 (DLs will be provided)</p>
-                    </div>
-                    <div id="destination">
-                        <p>Einstein Hall</p>
-                    </div>
-                    <div id="time">
-                        <p>1:00 P.M</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
-            </ul>
-            <ul id="library-sideBar2" class="inner-sideBar2">
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@prabhav</p>
-                    </div>
-                    <div id="title">
-                        <p>Study MERN</p>
-                    </div>
-                    <div id="destination">
-                        <p>Library</p>
-                    </div>
-                    <div id="time">
-                        <p>3:00 P.M</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
-            </ul>
-            <ul id="gaming-sideBar2" class="inner-sideBar2">
-                <li class="sidebar2-ele">
-                    <div id="writer">
-                        <img src="../images/profileIcon.svg" alt="">
-                        <p>@paritoshJamwal</p>
-                    </div>
-                    <div id="title">
-                        <p>Valorant</p>
-                    </div>
-                    <div id="destination">
-                        <p>Remote</p>
-                    </div>
-                    <div id="time">
-                        <p>2:00 AM</p>
-                        <button>I'm Interested</button>
-                    </div>
-                </li>
+                </li> -->
             </ul>
             <ul id="profile-sideBar2" class="inner-sideBar2">
                 <ul id="inner-profile-sideBar2-ele1" class="inner-profile-sideBar2-ele">
@@ -239,9 +108,9 @@
                         <img src="../images/profileIcon.svg" alt="">
                     </li>
                     <li id="inner-profile-username" class="inner-profile">
-                        <h2>@username</h2>
+                        <h2>@<span id="profile-username">username</span></h2>
                         <p>
-                            <span>BE-CSE</span> <span>2nd year</span>
+                            <span id="rollno">roll no.</span> <span id="hostelName">hostel name</span>
                         </p>
                     </li>
                 </ul>
@@ -265,9 +134,9 @@
             <form id="post-form" action="">
                 <input type="text" id="post-title" name="title" placeholder="Enter title">
                 <br>
-                <input type="text" id="post-title" name="destination" placeholder="Enter destination">
+                <input type="text" id="post-destination" name="destination" placeholder="Enter destination">
                 <br>
-                <input type="text" id="post-title" name="title" placeholder="Enter time (Ex.: 1:00 PM)">
+                <input type="text" id="post-time" name="time" placeholder="Enter time (Ex.: 1:00 PM)">
                 <br>
                 <select id="post-category" name="category">
                     <option name="category" value="" selected>Category</option>
@@ -278,13 +147,13 @@
                     <option name="category" value="other">Other</option>
                 </select>
                 <br>
-                <button type="submit" id="post-submit-btn">Post</button>
+                <button type="button" id="post-submit-btn">Post</button>
             </form>
         </div>
     </section>
 
 
-    <script type="module" src="../js/broadcast.js"></script>
+    <script src="../js/broadcast.js"></script>
 </body>
 
 </html>

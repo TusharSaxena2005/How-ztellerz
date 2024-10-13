@@ -14,9 +14,6 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
                 alert('Invalid Password')
             }
         }
-        else{
-            alert('Roll number not exist')
-        }
     }
 })
 

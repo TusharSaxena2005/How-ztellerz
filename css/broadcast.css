@@ -28,7 +28,7 @@ body {
 }
 
 #nav {
-    width: 97%;
+    width: 99%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -260,22 +260,54 @@ body {
     font-size: 1.1rem;
 }
 
-#time button {
-    margin-right: 40px;
-    height: 100%;
-    width: 130px;
-    background-color: rgba(255, 255, 255, 0.159);
+#time div {
+    /* border: 1px solid; */
+    width: 200px;
+    height: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#interested {
+    background-color: rgb(35, 35, 35);
+    width: 70%;
+    border-radius: 30px;
+}
+
+#interested:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.delete{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.delete img{
+    width: 70%;
+}
+
+.delete:hover{
+    background-color: #bb0c0c;
+}
+
+.delete,
+#interested {
     border: none;
-    border-radius: 15px;
+    height: 100%;
+    cursor: pointer;
     color: rgba(255, 255, 255, 0.73);
     font-weight: 400;
     font-family: 'Josefin Sans';
-    font-size: 1rem;
-    cursor: pointer;
+    font-size: 0.95rem;
 }
 
 #time button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
     transition: all 0.5s ease-in-out;
 }
 
@@ -316,6 +348,7 @@ body {
 }
 
 #inner-profile-username h2,
+#inner-profile-username h2 span,
 #inner-profile-username p span {
     font-size: 2rem;
     color: rgb(222, 222, 222);
@@ -481,6 +514,10 @@ body {
 }
 
 @media only screen and (max-width:430px) {
+    #nav-logo {
+        width: 146px;
+    }
+
     #page1 {
         flex-direction: column;
         height: 85vh;
@@ -524,6 +561,11 @@ body {
         margin-left: 0;
     }
 
+    #inner-profile-username h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     #inner-profile-username {
         height: 37%;
