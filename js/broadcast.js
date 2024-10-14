@@ -1,9 +1,5 @@
 let allOptions = document.getElementsByClassName('inner-sideBar2')
 let home = document.getElementById('home-sideBar2')
-let sports = document.getElementById('sports-sideBar2')
-let club = document.getElementById('club-sideBar2')
-let library = document.getElementById('library-sideBar2')
-let gaming = document.getElementById('gaming-sideBar2')
 let profile = document.getElementById('profile-sideBar2')
 let post = document.getElementById('sidebar1-ele7-btn')
 let navBtn = document.getElementById('nav-btn')
@@ -34,9 +30,9 @@ function allBroadcast() {
         let broadcasts = dataFetched.broadCast
         if (broadcasts.length > 0) {
             for (let j = 0; j < broadcasts.length; j++) {
-                if (loginedPerson==1) { 
+                if (loginedPerson == 1) {
                     document.getElementById('home-sideBar2').innerHTML +=
-                    `
+                        `
         <li class="sidebar2-ele">
                 <div id="writer">
                     <img src="../images/profileIcon.svg" alt="">
@@ -93,53 +89,170 @@ function allBroadcast() {
 
 allBroadcast();
 
+function broadcastByCategory(category) {
+    document.getElementById('home-sideBar2').innerHTML = ''
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        let loginedPerson = dataFetched.logined
+        let username = dataFetched.username
+        let broadcasts = dataFetched.broadCast
+        if (broadcasts.length > 0) {
+            for (let j = 0; j < broadcasts.length; j++) {
+                if (broadcasts[j].category == category) {
+                    if (loginedPerson == 1) {
+                        document.getElementById('home-sideBar2').innerHTML +=
+                            `
+                <li class="sidebar2-ele">
+                    <div id="writer">
+                        <img src="../images/profileIcon.svg" alt="">
+                        <p>@${username}</p>
+                    </div>
+                    <div id="title">
+                        <p>${broadcasts[j].title}</p>
+                    </div>
+                    <div id="destination">
+                        <p>${broadcasts[j].destination}</p>
+                    </div>
+                    <div id="time">
+                        <p>${broadcasts[j].time}</p>
+                        <div>
+                            <button id="interested">I'm Interested</button>
+                            <button class="delete">
+                                <img src="../images/delete.svg" alt="">
+                            </button> 
+                        </div>
+                    </div>
+                </li>
+            `;
+                    }
+                    else {
+                        document.getElementById('home-sideBar2').innerHTML +=
+                            `
+                    <li class="sidebar2-ele">
+                        <div id="writer">
+                            <img src="../images/profileIcon.svg" alt="">
+                            <p>@${username}</p>
+                        </div>
+                        <div id="title">
+                            <p>${broadcasts[j].title}</p>
+                        </div>
+                        <div id="destination">
+                            <p>${broadcasts[j].destination}</p>
+                        </div>
+                        <div id="time">
+                            <p>${broadcasts[j].time}</p>
+                            <div>
+                                <button id="interested">I'm Interested</button>
+                                <!--<button class="delete">
+                                    <img src="../images/delete.svg" alt="">
+                                </button>--> 
+                            </div>
+                        </div>
+                    </li>
+                `;
+                    }
+                }
+            }
+        }
+    }
+}
+
+let allDeleteBtn = document.querySelectorAll('.delete')
+allDeleteBtn.forEach((btn, index) => {
+    btn.addEventListener('click', function (e) {
+        for (let i = 1; i < localStorage.length; i++) {
+            let dataFetched = JSON.parse(localStorage[i])
+            if (dataFetched.logined == 1) {
+                let myArray = dataFetched.broadCast
+                myArray.splice(index, 1);
+                dataFetched.broadCast = myArray
+                localStorage.setItem(i, JSON.stringify(dataFetched))
+                allBroadcast();
+            }
+        }
+    })
+})
+
+function historyPosts() {
+    document.getElementById('inner-posts').innerHTML = ''
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        let loginedPerson = dataFetched.logined
+        let username = dataFetched.username
+        let broadcasts = dataFetched.broadCast
+        if (broadcasts.length > 0) {
+            for (let j = 0; j < broadcasts.length; j++) {
+                if (loginedPerson == 1) {
+                    document.getElementById('inner-posts').innerHTML +=
+                        `
+        <li class="sidebar2-ele">
+                <div id="writer">
+                    <img src="../images/profileIcon.svg" alt="">
+                    <p>@${username}</p>
+                </div>
+                <div id="title">
+                    <p>${broadcasts[j].title}</p>
+                </div>
+                <div id="destination">
+                    <p>${broadcasts[j].destination}</p>
+                </div>
+                <div id="time">
+                    <p>${broadcasts[j].time}</p>
+                    <div>
+                        <button id="interested">I'm Interested</button>
+                        <button class="delete">
+                            <img src="../images/delete.svg" alt="">
+                        </button> 
+                    </div>
+                </div>
+            </li>
+        `;
+                }
+            }
+        }
+    }
+}
 
 homeBtn.addEventListener('click', function () {
-    for (let i = 0; i < allOptions.length; i++) {
-        allOptions[i].style.display = 'none'
-    }
-    allBroadcast()
+    profile.style.display = 'none'
     home.style.display = 'flex';
+    allBroadcast()
     if (viewportWidth < 440) {
         navOpenClose()
     }
 })
 
 sportsBtn.addEventListener('click', function () {
-    for (let i = 0; i < allOptions.length; i++) {
-        allOptions[i].style.display = 'none'
-    }
-    sports.style.display = 'flex';
+    profile.style.display = 'none'
+    home.style.display = 'flex'
+    broadcastByCategory('sports')
     if (viewportWidth < 440) {
         navOpenClose()
     }
 })
 
 clubBtn.addEventListener('click', function () {
-    for (let i = 0; i < allOptions.length; i++) {
-        allOptions[i].style.display = 'none'
-    }
-    club.style.display = 'flex';
+    profile.style.display = 'none'
+    home.style.display = 'flex'
+    broadcastByCategory('club')
     if (viewportWidth < 440) {
         navOpenClose()
     }
 })
 
 libraryBtn.addEventListener('click', function () {
-    for (let i = 0; i < allOptions.length; i++) {
-        allOptions[i].style.display = 'none'
-    }
-    library.style.display = 'flex';
+    profile.style.display = 'none'
+    home.style.display = 'flex'
+    broadcastByCategory('library')
     if (viewportWidth < 440) {
         navOpenClose()
     }
 })
 
 gamingBtn.addEventListener('click', function () {
-    for (let i = 0; i < allOptions.length; i++) {
-        allOptions[i].style.display = 'none'
-    }
-    gaming.style.display = 'flex';
+    profile.style.display = 'none'
+    home.style.display = 'flex'
+    broadcastByCategory('gaming')
     if (viewportWidth < 440) {
         navOpenClose()
     }
@@ -162,6 +275,7 @@ profileBtn.addEventListener('click', function () {
             document.getElementById('hostelName').innerHTML = dataFetched.hostelName;
         }
     }
+    historyPosts()
 
 })
 

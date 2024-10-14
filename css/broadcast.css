@@ -384,6 +384,27 @@ body {
     border-radius: 10px;
     width: 95%;
     height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inner-posts{
+    width: 95%;
+    height: 87%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#inner-posts::-webkit-scrollbar {
+    width: 5px;
+}
+
+#inner-posts::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.549);
+    border-radius: 10px;
 }
 
 #outer-post-form {
