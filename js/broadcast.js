@@ -20,6 +20,16 @@ let crossBtn = document.getElementById('cross-btn')
 
 const viewportWidth = window.innerWidth;
 
+document.querySelectorAll('.sidebar1-ele').forEach((btn,index)=>{
+    btn.addEventListener('click',function(e){
+        document.querySelectorAll('.sidebar1-ele').forEach((btn,index)=>{
+            btn.style.border='none'
+        })
+       let button= e.target.closest('.sidebar1-ele')
+       button.style.border = '2px solid white'
+    })
+})
+
 
 function allBroadcast() {
     document.getElementById('home-sideBar2').innerHTML = ''

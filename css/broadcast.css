@@ -132,8 +132,8 @@ body {
 
 .sidebar1-ele:hover {
     border: 2px solid white;
-    border-radius: 29px;
     background-color: #ffffff24;
+    border-radius: 29px;
     /* color: black; */
     transition: all 0.4s ease-in-out;
 }
@@ -275,11 +275,11 @@ body {
     border-radius: 30px;
 }
 
-#interested:hover{
+#interested:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.delete{
+.delete {
     width: 15%;
     display: flex;
     justify-content: center;
@@ -288,11 +288,11 @@ body {
     border-radius: 5px;
 }
 
-.delete img{
+.delete img {
     width: 70%;
 }
 
-.delete:hover{
+.delete:hover {
     background-color: #bb0c0c;
 }
 
@@ -389,7 +389,7 @@ body {
     align-items: center;
 }
 
-#inner-posts{
+#inner-posts {
     width: 95%;
     height: 87%;
     overflow-y: scroll;
@@ -535,6 +535,14 @@ body {
 }
 
 @media only screen and (max-width:430px) {
+    #home-sideBar2{
+        margin-top: 13px;
+    }
+
+    #inner-nav{
+        width: 90%;
+    }
+
     #nav-logo {
         width: 146px;
     }
@@ -551,7 +559,7 @@ body {
     }
 
     #sideBar1 {
-        width: 90%;
+        width: 95%;
         height: 88%;
     }
 
@@ -561,11 +569,11 @@ body {
     }
 
     .inner-sideBar2 {
-        height: 68vh;
+        height: 67vh;
     }
 
     #sideBar2 {
-        width: 90%;
+        width: 96%;
         height: 80vh;
         padding-bottom: 10px;
     }
