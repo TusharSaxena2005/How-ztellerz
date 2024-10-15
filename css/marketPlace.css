@@ -48,16 +48,26 @@ body {
     height: 61px;
 }
 
-#profile {
-    width: 35px;
+#logout {
+    width: 100px;
     height: 35px;
     border: 2px solid;
     border-radius: 20px;
+    background-color: transparent;
+    border: 1px solid white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
 }
 
-#profile a,
-#profile a img {
-    width: 100%;
+
+#logout:hover {
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+}
+
+#logout img {
+    width: 30%;
 }
 
 #outer-main-page {
@@ -600,6 +610,7 @@ body {
     border-radius: 14px;
     margin-top: 15px;
 }
+
 #inner-filter-box form button:hover {
     background-color: rgb(40, 40, 40);
     transition: all 0.5s ease-in-out;
