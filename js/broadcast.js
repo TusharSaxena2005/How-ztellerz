@@ -286,7 +286,6 @@ profileBtn.addEventListener('click', function () {
         }
     }
     historyPosts()
-
 })
 
 post.addEventListener('click', function () {
