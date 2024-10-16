@@ -11,7 +11,7 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
         "roomNum": document.getElementById('roomNum').value,
         "broadCast": [],
         "marketPlace": [],
-        "logined": 0,
+        "logined": 1,
     }
 
     localStorage.setItem(localStorage.length, JSON.stringify(data))

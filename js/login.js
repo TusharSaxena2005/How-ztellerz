@@ -13,7 +13,7 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
             else {
                 alert('Invalid Password')
             }
-        }
+        } 
     }
 })
 
