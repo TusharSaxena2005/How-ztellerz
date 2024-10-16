@@ -255,8 +255,17 @@ body {
     font-size: 1.1rem;
 }
 
-.outer-cars button {
-    height: 10%;
+.outer-cars div {
+    height: 11%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.details-button,
+.removeItemBtn {
+    height: 100%;
     width: 70%;
     background-color: transparent;
     border: 1px solid;
@@ -264,8 +273,22 @@ body {
     cursor: pointer;
 }
 
-.outer-cars button:hover {
+.removeItemBtn {
+    border-radius: 6px;
+    border: none;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    background-color: #8a1616;
+    align-items: center;
+}
+
+.details-button:hover {
     background-color: #333;
+}
+
+.removeItemBtn:hover{
+    background-color: #d01717;
 }
 
 #details-box {

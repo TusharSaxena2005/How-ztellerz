@@ -8,7 +8,17 @@ let drinkBtn = document.getElementById('inner-main-page1-ele3')
 let biscuitBtn = document.getElementById('inner-main-page1-ele4')
 let otherBtn = document.getElementById('inner-main-page1-ele5')
 let profileBtn = document.getElementById('inner-main-page1-ele7')
+let filterBtn = document.getElementById('filterApply')
 
+document.querySelectorAll('.inner-main-page1-ele').forEach((btn,index)=>{
+    btn.addEventListener('click',function(e){
+        document.querySelectorAll('.inner-main-page1-ele').forEach((btn,index)=>{
+            btn.style.border='none'
+        })
+       let button= e.target.closest('.inner-main-page1-ele')
+       button.style.border = '2px solid white'
+    })
+})
 
 function openAddItemForm() {
     addItemForm.style.display = 'flex'
@@ -34,12 +44,49 @@ function openProfilePage() {
     }
 }
 
-function showAllData() {
+function homePage() {
     document.getElementById('profile-sideBar2').style.display = 'none'
     const outerCarsElements = document.querySelectorAll('.outer-cars');
     outerCarsElements.forEach((element) => {
         element.style.display = 'flex';
     });
+    showAllItem()
+}
+
+function chipsPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('chips')
+}
+
+function drinksPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('drinks')
+}
+
+function biscuitsPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('biscuits')
+}
+
+function otherPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('other')
 }
 
 document.getElementById('logout').addEventListener('click', function () {
@@ -53,9 +100,18 @@ document.getElementById('logout').addEventListener('click', function () {
     }
 })
 
+
 showAllItem()
 
-homeBtn.addEventListener('click', showAllData)
+homeBtn.addEventListener('click', homePage)
+
+chipBtn.addEventListener('click', chipsPage)
+
+drinkBtn.addEventListener('click', drinksPage)
+
+biscuitBtn.addEventListener('click', biscuitsPage)
+
+otherBtn.addEventListener('click', otherPage)
 
 profileBtn.addEventListener('click', openProfilePage)
 
@@ -75,39 +131,6 @@ filterBtnOpen.addEventListener('click', function () {
 filterBtnClose.addEventListener('click', function () {
     filterBox.style.display = 'none'
 })
-
-let detailsBtn = document.querySelectorAll('.details-button');
-detailsBtn.forEach(button => {
-    button.addEventListener('click', function (e) {
-        const product = e.target.closest('.outer-cars');
-        const name = product.getAttribute('data-name');
-        const price = product.getAttribute('data-price');
-        const hostel = product.getAttribute('data-hostel-name');
-        const floor = product.getAttribute('data-floor');
-        const room = product.getAttribute('data-room');
-        const category = product.getAttribute('data-category');
-        const sellerName = product.getAttribute('data-seller');
-        const contactNum = product.getAttribute('data-contact');
-        const imageUrl = product.getAttribute('data-imageURL');
-
-        const detailBox = document.getElementById('details-box');
-        detailBox.style.display = 'flex';
-        const detailBoxClose = document.getElementById('detail-box-close');
-        detailBoxClose.addEventListener('click', function () {
-            detailBox.style.display = 'none';
-        })
-
-        document.getElementById('productName').innerText = name
-        document.getElementById('productPrice').innerText = price
-        document.getElementById('SellerName').innerText = sellerName
-        document.getElementById('SellerContact').innerText = contactNum
-        document.getElementById('hostel-Name').innerText = hostel
-        document.getElementById('floorNum').innerText = floor
-        document.getElementById('roomNum').innerText = room
-        document.getElementById('product-Img').src = `../images/${imageUrl}`
-    })
-})
-
 
 let addItemFormBtn = document.getElementById('add-item-form-btn')
 
@@ -150,6 +173,12 @@ function showAllItem() {
     document.getElementById('inner-main2-page2').innerHTML = ''
     for (let i = 1; i < localStorage.length; i++) {
         let dataFetched = JSON.parse(localStorage[i])
+        if (dataFetched.logined == 1) {
+            loginedPerson = dataFetched.username
+        }
+        else {
+            loginedPerson = 'none'
+        }
         if (dataFetched.marketPlace.length > 0) {
             for (let j = 0; j < dataFetched.marketPlace.length; j++) {
                 let pName = dataFetched.marketPlace[j].productName
@@ -161,20 +190,41 @@ function showAllItem() {
                 let sFloor = dataFetched.floorNum
                 let sRoom = dataFetched.roomNum
                 let sContact = dataFetched.phoneNum
-                document.getElementById('inner-main2-page2').innerHTML += `
+                if (loginedPerson == sName) {
+                    document.getElementById('inner-main2-page2').innerHTML += `
                 <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
                 data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
                         data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
                         <img src="../images/${pImgURL}" alt="">
                         <p>${pName}</p>
                         <p>${pPrice} Rs.</p>
-                        <button class="details-button">Details</button>
+                        <div>
+                            <button class="details-button">Details</button>
+                            <button class="removeItemBtn">
+                                <img src="../images/delete.svg" alt="">
+                            </button>
+                        </div>
                         </li>
                         `
+
+                } else {
+                    document.getElementById('inner-main2-page2').innerHTML += `
+                <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                        data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                        <img src="../images/${pImgURL}" alt="">
+                        <p>${pName}</p>
+                        <p>${pPrice} Rs.</p>
+                        <div>
+                            <button class="details-button">Details</button>
+                        </div>
+                        </li>
+                        `
+                }
             }
         }
     }
-    document.getElementById('inner-main2-page2').innerHTML +=`
+    document.getElementById('inner-main2-page2').innerHTML += `
     <ul id="profile-sideBar2" class="inner-sideBar2">
                         <ul id="inner-profile-sideBar2-ele1" class="inner-profile-sideBar2-ele">
                             <li id="inner-profile-pic" class="inner-profile">
@@ -222,3 +272,316 @@ function showAllItem() {
 
 }
 
+function showItemByCategory(category) {
+    document.getElementById('inner-main2-page2').innerHTML = ''
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        if (dataFetched.logined == 1) {
+            loginedPerson = dataFetched.username
+        }
+        else {
+            loginedPerson = 'none'
+        }
+        if (dataFetched.marketPlace.length > 0) {
+            for (let j = 0; j < dataFetched.marketPlace.length; j++) {
+                let pName = dataFetched.marketPlace[j].productName
+                let pPrice = dataFetched.marketPlace[j].productPrice
+                let pCategory = dataFetched.marketPlace[j].productCategory
+                let pImgURL = dataFetched.marketPlace[j].productImg
+                let sName = dataFetched.username
+                let sHostelName = dataFetched.hostelName
+                let sFloor = dataFetched.floorNum
+                let sRoom = dataFetched.roomNum
+                let sContact = dataFetched.phoneNum
+                if (pCategory == category) {
+                    if (loginedPerson == sName) {
+                        document.getElementById('inner-main2-page2').innerHTML += `
+                        <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                        data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                        data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                        <img src="../images/${pImgURL}" alt="">
+                        <p>${pName}</p>
+                        <p>${pPrice} Rs.</p>
+                        <div>
+                            <button class="details-button">Details</button>
+                            <button class="removeItemBtn">
+                                <img src="../images/delete.svg" alt="">
+                            </button>
+                        </div>
+                        </li>
+                        `
+
+                    } else {
+                        document.getElementById('inner-main2-page2').innerHTML += `
+                        <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                        data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                        data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                        <img src="../images/${pImgURL}" alt="">
+                        <p>${pName}</p>
+                        <p>${pPrice} Rs.</p>
+                        <div>
+                            <button class="details-button">Details</button>
+                        </div>
+                        </li>
+                        `
+                    }
+                }
+            }
+        }
+    }
+    document.getElementById('inner-main2-page2').innerHTML += `
+    <ul id="profile-sideBar2" class="inner-sideBar2">
+                        <ul id="inner-profile-sideBar2-ele1" class="inner-profile-sideBar2-ele">
+                            <li id="inner-profile-pic" class="inner-profile">
+                                <img src="../images/profileIcon.svg" alt="">
+                            </li>
+                            <li id="inner-profile-username" class="inner-profile">
+                                <h2>@<span id="profile-username">username</span></h2>
+                                <p>
+                                    <span id="rollno">roll no.</span> <span id="hostelName">hostel name</span>
+                                </p>
+                            </li>
+                        </ul>
+                        <ul id="inner-profile-sideBar2-ele2" class="inner-profile-sideBar2-ele">
+                            <li id="posts-head">
+                                <h2>Posts</h2>
+                            </li>
+                            <li id="posts">
+                                <ul id="inner-posts">
+                                    <!-- <li class="sidebar2-ele">
+                                <div id="writer">
+                                    <img src="../images/profileIcon.svg" alt="">
+                                    <p>@username</p>
+                                </div>
+                                <div id="title">
+                                    <p>Title / Event name</p>
+                                </div>
+                                <div id="destination">
+                                    <p>Destination</p>
+                                </div>
+                                <div id="time">
+                                    <p>Time</p>
+                                    <div>
+                                        <button id="interested">I'm Interested</button>
+                                        <button class="delete">
+                                            <img src="../images/delete.svg" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </li> -->
+                                </ul>
+                            </li>
+                        </ul>
+                    </ul>
+    `
+
+}
+
+function showItemByFilter(hostelName, floorNum = "none") {
+    document.getElementById('inner-main2-page2').innerHTML = ''
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        if (dataFetched.logined == 1) {
+            loginedPerson = dataFetched.username
+        }
+        else {
+            loginedPerson = 'none'
+        }
+        if (dataFetched.marketPlace.length > 0) {
+            for (let j = 0; j < dataFetched.marketPlace.length; j++) {
+                let pName = dataFetched.marketPlace[j].productName
+                let pPrice = dataFetched.marketPlace[j].productPrice
+                let pCategory = dataFetched.marketPlace[j].productCategory
+                let pImgURL = dataFetched.marketPlace[j].productImg
+                let sName = dataFetched.username
+                let sHostelName = dataFetched.hostelName
+                let sFloor = dataFetched.floorNum
+                let sRoom = dataFetched.roomNum
+                let sContact = dataFetched.phoneNum
+                if (hostelName == sHostelName && floorNum == sFloor) {
+                    if (loginedPerson == sName) {
+                        document.getElementById('inner-main2-page2').innerHTML += `
+                        <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                        data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                        data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                        <img src="../images/${pImgURL}" alt="">
+                        <p>${pName}</p>
+                        <p>${pPrice} Rs.</p>
+                        <div>
+                            <button class="details-button">Details</button>
+                            <button class="removeItemBtn">
+                                <img src="../images/delete.svg" alt="">
+                            </button>
+                        </div>
+                        </li>
+                        `
+
+                    } else {
+                        document.getElementById('inner-main2-page2').innerHTML += `
+                        <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                        data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                        data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                        <img src="../images/${pImgURL}" alt="">
+                        <p>${pName}</p>
+                        <p>${pPrice} Rs.</p>
+                        <div>
+                            <button class="details-button">Details</button>
+                        </div>
+                        </li>
+                        `
+                    }
+                }
+                else if (hostelName == sHostelName && floorNum == "none") {
+                    if (loginedPerson == sName) {
+                        document.getElementById('inner-main2-page2').innerHTML += `
+                        <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                        data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                        data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                        <img src="../images/${pImgURL}" alt="">
+                        <p>${pName}</p>
+                        <p>${pPrice} Rs.</p>
+                        <div>
+                            <button class="details-button">Details</button>
+                            <button class="removeItemBtn">
+                                <img src="../images/delete.svg" alt="">
+                            </button>
+                        </div>
+                        </li>
+                        `
+
+                    } else {
+                        document.getElementById('inner-main2-page2').innerHTML += `
+                        <li id="outer-card1" class="outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                        data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                        data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                        <img src="../images/${pImgURL}" alt="">
+                        <p>${pName}</p>
+                        <p>${pPrice} Rs.</p>
+                        <div>
+                            <button class="details-button">Details</button>
+                        </div>
+                        </li>
+                        `
+                    }
+                }
+            }
+        }
+    }
+    document.getElementById('inner-main2-page2').innerHTML += `
+    <ul id="profile-sideBar2" class="inner-sideBar2">
+                        <ul id="inner-profile-sideBar2-ele1" class="inner-profile-sideBar2-ele">
+                            <li id="inner-profile-pic" class="inner-profile">
+                                <img src="../images/profileIcon.svg" alt="">
+                            </li>
+                            <li id="inner-profile-username" class="inner-profile">
+                                <h2>@<span id="profile-username">username</span></h2>
+                                <p>
+                                    <span id="rollno">roll no.</span> <span id="hostelName">hostel name</span>
+                                </p>
+                            </li>
+                        </ul>
+                        <ul id="inner-profile-sideBar2-ele2" class="inner-profile-sideBar2-ele">
+                            <li id="posts-head">
+                                <h2>Posts</h2>
+                            </li>
+                            <li id="posts">
+                                <ul id="inner-posts">
+                                    <!-- <li class="sidebar2-ele">
+                                <div id="writer">
+                                    <img src="../images/profileIcon.svg" alt="">
+                                    <p>@username</p>
+                                </div>
+                                <div id="title">
+                                    <p>Title / Event name</p>
+                                </div>
+                                <div id="destination">
+                                    <p>Destination</p>
+                                </div>
+                                <div id="time">
+                                    <p>Time</p>
+                                    <div>
+                                        <button id="interested">I'm Interested</button>
+                                        <button class="delete">
+                                            <img src="../images/delete.svg" alt="">
+                                        </button>
+                                    </div>
+                                </div>
+                            </li> -->
+                                </ul>
+                            </li>
+                        </ul>
+                    </ul>
+    `
+
+}
+
+filterBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    let filterHostelName = document.getElementById('filterHostelName').value
+    let filterFloorNum = document.getElementById('filterFloorNum').value
+
+    if (filterFloorNum == "") {
+        showItemByFilter(filterHostelName)
+    }
+    else if (filterHostelName == "") {
+        alert('Enter hostel name')
+    }
+    else {
+        showItemByFilter(filterHostelName, filterFloorNum)
+    }
+    document.getElementById('filterHostelName').value = ''
+    document.getElementById('filterFloorNum').value = ''
+})
+
+document.getElementById('inner-main2-page2').addEventListener('click', function (e) {
+    if (e.target.closest('.removeItemBtn')) {
+        const product = e.target.closest('.outer-cars');
+        const productName = product.getAttribute('data-name');
+
+        for (let i = 1; i < localStorage.length; i++) {
+            let dataFetched = JSON.parse(localStorage[i]);
+            if (dataFetched.logined == 1) {
+                let myArray = dataFetched.marketPlace;
+                const indexToRemove = myArray.findIndex(item => item.productName === productName);
+                if (indexToRemove !== -1) {
+                    myArray.splice(indexToRemove, 1);
+                    dataFetched.marketPlace = myArray;
+                    localStorage.setItem(i, JSON.stringify(dataFetched));
+                    showAllItem();
+                    break;
+                }
+            }
+        }
+    }
+});
+
+document.getElementById('inner-main2-page2').addEventListener('click', function (e) {
+    if (e.target.closest('.details-button')) {
+        const product = e.target.closest('.outer-cars');
+        const name = product.getAttribute('data-name');
+        const price = product.getAttribute('data-price');
+        const hostel = product.getAttribute('data-hostel-name');
+        const floor = product.getAttribute('data-floor');
+        const room = product.getAttribute('data-room');
+        const category = product.getAttribute('data-category');
+        const sellerName = product.getAttribute('data-seller');
+        const contactNum = product.getAttribute('data-contact');
+        const imageUrl = product.getAttribute('data-imageURL');
+
+        const detailBox = document.getElementById('details-box');
+        detailBox.style.display = 'flex';
+
+        document.getElementById('productName').innerText = name;
+        document.getElementById('productPrice').innerText = price;
+        document.getElementById('SellerName').innerText = sellerName;
+        document.getElementById('SellerContact').innerText = contactNum;
+        document.getElementById('hostel-Name').innerText = hostel;
+        document.getElementById('floorNum').innerText = floor;
+        document.getElementById('roomNum').innerText = room;
+        document.getElementById('product-Img').src = `../images/${imageUrl}`;
+    }
+});
+
+document.getElementById('detail-box-close').addEventListener('click', function () {
+    document.getElementById('details-box').style.display = 'none';
+});
