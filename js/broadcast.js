@@ -6,7 +6,6 @@ let navBtn = document.getElementById('nav-btn')
 
 let logout = document.getElementById('logout')
 
-
 let homeBtn = document.getElementById('home-btn')
 let sportsBtn = document.getElementById('sports-btn')
 let clubBtn = document.getElementById('club-btn')
@@ -14,22 +13,20 @@ let libraryBtn = document.getElementById('library-btn')
 let gamingBtn = document.getElementById('gaming-btn')
 let profileBtn = document.getElementById('profile-btn')
 
-
 let crossBtn = document.getElementById('cross-btn')
 
 
+
+// User to get width of device for responsiveness -------->
 const viewportWidth = window.innerWidth;
 
-document.querySelectorAll('.sidebar1-ele').forEach((btn,index)=>{
-    btn.addEventListener('click',function(e){
-        document.querySelectorAll('.sidebar1-ele').forEach((btn,index)=>{
-            btn.style.border='none'
-        })
-       let button= e.target.closest('.sidebar1-ele')
-       button.style.border = '2px solid white'
-    })
-})
 
+
+allBroadcast();
+
+
+
+// All function starts from here ----->
 
 function allBroadcast() {
     document.getElementById('home-sideBar2').innerHTML = ''
@@ -97,7 +94,15 @@ function allBroadcast() {
     }
 }
 
-allBroadcast();
+document.querySelectorAll('.sidebar1-ele').forEach((btn,index)=>{
+    btn.addEventListener('click',function(e){
+        document.querySelectorAll('.sidebar1-ele').forEach((btn,index)=>{
+            btn.style.border='none'
+        })
+       let button= e.target.closest('.sidebar1-ele')
+       button.style.border = '2px solid white'
+    })
+})
 
 function broadcastByCategory(category) {
     document.getElementById('home-sideBar2').innerHTML = ''
@@ -167,22 +172,6 @@ function broadcastByCategory(category) {
     }
 }
 
-let allDeleteBtn = document.querySelectorAll('.delete')
-allDeleteBtn.forEach((btn, index) => {
-    btn.addEventListener('click', function (e) {
-        for (let i = 1; i < localStorage.length; i++) {
-            let dataFetched = JSON.parse(localStorage[i])
-            if (dataFetched.logined == 1) {
-                let myArray = dataFetched.broadCast
-                myArray.splice(index, 1);
-                dataFetched.broadCast = myArray
-                localStorage.setItem(i, JSON.stringify(dataFetched))
-                allBroadcast();
-            }
-        }
-    })
-})
-
 function historyPosts() {
     document.getElementById('inner-posts').innerHTML = ''
     for (let i = 1; i < localStorage.length; i++) {
@@ -222,6 +211,41 @@ function historyPosts() {
         }
     }
 }
+
+function crossButton() {
+    document.getElementById('outer-post-form').style.display = 'none'
+}
+
+function navOpenClose() {
+    let navEle = document.getElementsByClassName('sidebar1-ele')
+    for (let i = 0; i < navEle.length; i++) {
+        if (navEle[i].style.display != 'flex') {
+            navEle[i].style.display = 'flex'
+            document.getElementById('page1').style.height = '180vh'
+            document.getElementById('sideBar1').style.height = '45%'
+        }
+        else {
+            navEle[i].style.display = 'none'
+            document.getElementById('page1').style.height = '85vh'
+            document.getElementById('sideBar1').style.height = '55px'
+        }
+    }
+}
+
+function logOut() {
+    for (let i = 1; i < localStorage.length; i++) {
+        let verifyRollNum = JSON.parse(localStorage[i])
+        if (verifyRollNum.logined == 1) {
+            verifyRollNum.logined = 0;
+            localStorage.setItem(i, JSON.stringify(verifyRollNum));
+            window.location = "../html/login.html"
+        }
+    }
+}
+
+
+
+//  All Event listeners starts from here ------> 
 
 homeBtn.addEventListener('click', function () {
     profile.style.display = 'none'
@@ -292,42 +316,11 @@ post.addEventListener('click', function () {
     document.getElementById('outer-post-form').style.display = 'flex'
 })
 
-function crossButton() {
-    document.getElementById('outer-post-form').style.display = 'none'
-}
+logout.addEventListener('click', logOut)
 
 crossBtn.addEventListener('click', crossButton)
 
-function navOpenClose() {
-    let navEle = document.getElementsByClassName('sidebar1-ele')
-    for (let i = 0; i < navEle.length; i++) {
-        if (navEle[i].style.display != 'flex') {
-            navEle[i].style.display = 'flex'
-            document.getElementById('page1').style.height = '180vh'
-            document.getElementById('sideBar1').style.height = '45%'
-        }
-        else {
-            navEle[i].style.display = 'none'
-            document.getElementById('page1').style.height = '85vh'
-            document.getElementById('sideBar1').style.height = '55px'
-        }
-    }
-}
-
 navBtn.addEventListener('click', navOpenClose)
-
-
-logout.addEventListener('click', function () {
-    for (let i = 1; i < localStorage.length; i++) {
-        let verifyRollNum = JSON.parse(localStorage[i])
-        if (verifyRollNum.logined == 1) {
-            verifyRollNum.logined = 0;
-            localStorage.setItem(i, JSON.stringify(verifyRollNum));
-            window.location = "../html/login.html"
-        }
-    }
-})
-
 
 document.getElementById('post-submit-btn').addEventListener('click', function (event) {
     event.preventDefault();
@@ -351,4 +344,24 @@ document.getElementById('post-submit-btn').addEventListener('click', function (e
     document.getElementById('post-category').value = ""
     allBroadcast();
     crossButton();
+})
+
+
+
+// Delete element query written here ---->
+
+let allDeleteBtn = document.querySelectorAll('.delete')
+allDeleteBtn.forEach((btn, index) => {
+    btn.addEventListener('click', function (e) {
+        for (let i = 1; i < localStorage.length; i++) {
+            let dataFetched = JSON.parse(localStorage[i])
+            if (dataFetched.logined == 1) {
+                let myArray = dataFetched.broadCast
+                myArray.splice(index, 1);
+                dataFetched.broadCast = myArray
+                localStorage.setItem(i, JSON.stringify(dataFetched))
+                allBroadcast();
+            }
+        }
+    })
 })
