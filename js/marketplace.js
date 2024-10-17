@@ -1,6 +1,7 @@
 let addItemBtn = document.getElementById('inner-main-page1-ele6')
 let addItemForm = document.getElementById('add-item-box')
 let addItemFormClose = document.getElementById('add-item-box-close')
+let addItemFormBtn = document.getElementById('add-item-form-btn')
 
 let homeBtn = document.getElementById('inner-main-page1-ele1')
 let chipBtn = document.getElementById('inner-main-page1-ele2')
@@ -8,166 +9,19 @@ let drinkBtn = document.getElementById('inner-main-page1-ele3')
 let biscuitBtn = document.getElementById('inner-main-page1-ele4')
 let otherBtn = document.getElementById('inner-main-page1-ele5')
 let profileBtn = document.getElementById('inner-main-page1-ele7')
+
 let filterBtn = document.getElementById('filterApply')
-
-document.querySelectorAll('.inner-main-page1-ele').forEach((btn,index)=>{
-    btn.addEventListener('click',function(e){
-        document.querySelectorAll('.inner-main-page1-ele').forEach((btn,index)=>{
-            btn.style.border='none'
-        })
-       let button= e.target.closest('.inner-main-page1-ele')
-       button.style.border = '2px solid white'
-    })
-})
-
-function openAddItemForm() {
-    addItemForm.style.display = 'flex'
-}
-
-function closeAddItemForm() {
-    addItemForm.style.display = 'none'
-}
-
-function openProfilePage() {
-    const outerCarsElements = document.querySelectorAll('.outer-cars');
-    outerCarsElements.forEach((element) => {
-        element.style.display = 'none';
-    });
-    document.getElementById('profile-sideBar2').style.display = 'flex'
-    for (let i = 1; i < localStorage.length; i++) {
-        let dataFetched = JSON.parse(localStorage[i])
-        if (dataFetched.logined == 1) {
-            document.getElementById('profile-username').innerHTML = dataFetched.username;
-            document.getElementById('rollno').innerHTML = dataFetched.rollNum;
-            document.getElementById('hostelName').innerHTML = dataFetched.hostelName;
-        }
-    }
-}
-
-function homePage() {
-    document.getElementById('profile-sideBar2').style.display = 'none'
-    const outerCarsElements = document.querySelectorAll('.outer-cars');
-    outerCarsElements.forEach((element) => {
-        element.style.display = 'flex';
-    });
-    showAllItem()
-}
-
-function chipsPage() {
-    document.getElementById('profile-sideBar2').style.display = 'none'
-    const outerCarsElements = document.querySelectorAll('.outer-cars');
-    outerCarsElements.forEach((element) => {
-        element.style.display = 'flex';
-    });
-    showItemByCategory('chips')
-}
-
-function drinksPage() {
-    document.getElementById('profile-sideBar2').style.display = 'none'
-    const outerCarsElements = document.querySelectorAll('.outer-cars');
-    outerCarsElements.forEach((element) => {
-        element.style.display = 'flex';
-    });
-    showItemByCategory('drinks')
-}
-
-function biscuitsPage() {
-    document.getElementById('profile-sideBar2').style.display = 'none'
-    const outerCarsElements = document.querySelectorAll('.outer-cars');
-    outerCarsElements.forEach((element) => {
-        element.style.display = 'flex';
-    });
-    showItemByCategory('biscuits')
-}
-
-function otherPage() {
-    document.getElementById('profile-sideBar2').style.display = 'none'
-    const outerCarsElements = document.querySelectorAll('.outer-cars');
-    outerCarsElements.forEach((element) => {
-        element.style.display = 'flex';
-    });
-    showItemByCategory('other')
-}
-
-document.getElementById('logout').addEventListener('click', function () {
-    for (let i = 1; i < localStorage.length; i++) {
-        let verifyRollNum = JSON.parse(localStorage[i])
-        if (verifyRollNum.logined == 1) {
-            verifyRollNum.logined = 0;
-            localStorage.setItem(i, JSON.stringify(verifyRollNum));
-            window.location = "../html/login.html"
-        }
-    }
-})
-
-
-showAllItem()
-
-homeBtn.addEventListener('click', homePage)
-
-chipBtn.addEventListener('click', chipsPage)
-
-drinkBtn.addEventListener('click', drinksPage)
-
-biscuitBtn.addEventListener('click', biscuitsPage)
-
-otherBtn.addEventListener('click', otherPage)
-
-profileBtn.addEventListener('click', openProfilePage)
-
-addItemBtn.addEventListener('click', openAddItemForm)
-
-addItemFormClose.addEventListener('click', closeAddItemForm)
-
-
 let filterBox = document.getElementById('filter-box')
 let filterBtnOpen = document.getElementById('filter-btn')
 let filterBtnClose = document.getElementById('filter-box-close')
 
-filterBtnOpen.addEventListener('click', function () {
-    filterBox.style.display = 'flex'
-})
+let logout = document.getElementById('logout')
 
-filterBtnClose.addEventListener('click', function () {
-    filterBox.style.display = 'none'
-})
 
-let addItemFormBtn = document.getElementById('add-item-form-btn')
 
-addItemFormBtn.addEventListener('click', function () {
-    let productName = document.getElementById('product-name').value
-    let productPrice = document.getElementById('product-price').value
-    let productCategory = document.getElementById('product-category').value
-    let productImg = document.getElementById('product-img').value
-    let Oripath = ''
-    let fakeImgPath = ''
-    for (let i = 0; i <= productImg.length; i++) {
-        if (productImg[i] == '\\' || i == productImg.length) {
-            Oripath = fakeImgPath;
-            fakeImgPath = ''
-        }
-        else {
-            fakeImgPath += productImg[i];
-        }
-    }
+showAllItem()
 
-    for (let i = 1; i < localStorage.length; i++) {
-        let dataFetched = JSON.parse(localStorage[i])
-        if (dataFetched.logined == 1) {
-            let dataToEnter = {
-                'productName': productName,
-                'productPrice': productPrice,
-                'productCategory': productCategory,
-                'productImg': Oripath
-            }
-            dataFetched.marketPlace.push(dataToEnter)
-            localStorage.setItem(i, JSON.stringify(dataFetched))
-            break;
-        }
-    }
-    showAllItem()
-    closeAddItemForm();
-})
+// All functions start from here ----->
 
 function showAllItem() {
     document.getElementById('inner-main2-page2').innerHTML = ''
@@ -515,6 +369,161 @@ function showItemByFilter(hostelName, floorNum = "none") {
 
 }
 
+function openAddItemForm() {
+    addItemForm.style.display = 'flex'
+}
+
+function closeAddItemForm() {
+    addItemForm.style.display = 'none'
+}
+
+function openProfilePage() {
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'none';
+    });
+    document.getElementById('profile-sideBar2').style.display = 'flex'
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        if (dataFetched.logined == 1) {
+            document.getElementById('profile-username').innerHTML = dataFetched.username;
+            document.getElementById('rollno').innerHTML = dataFetched.rollNum;
+            document.getElementById('hostelName').innerHTML = dataFetched.hostelName;
+        }
+    }
+}
+
+function homePage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showAllItem()
+}
+
+function chipsPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('chips')
+}
+
+function drinksPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('drinks')
+}
+
+function biscuitsPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('biscuits')
+}
+
+function otherPage() {
+    document.getElementById('profile-sideBar2').style.display = 'none'
+    const outerCarsElements = document.querySelectorAll('.outer-cars');
+    outerCarsElements.forEach((element) => {
+        element.style.display = 'flex';
+    });
+    showItemByCategory('other')
+}
+
+function logOut() {
+    for (let i = 1; i < localStorage.length; i++) {
+        let verifyRollNum = JSON.parse(localStorage[i])
+        if (verifyRollNum.logined == 1) {
+            verifyRollNum.logined = 0;
+            localStorage.setItem(i, JSON.stringify(verifyRollNum));
+            window.location = "../html/login.html"
+        }
+    }
+}
+
+
+
+// All Event listeners start from here ------>
+
+logout.addEventListener('click', logOut)
+
+homeBtn.addEventListener('click', homePage)
+
+chipBtn.addEventListener('click', chipsPage)
+
+drinkBtn.addEventListener('click', drinksPage)
+
+biscuitBtn.addEventListener('click', biscuitsPage)
+
+otherBtn.addEventListener('click', otherPage)
+
+profileBtn.addEventListener('click', openProfilePage)
+
+document.querySelectorAll('.inner-main-page1-ele').forEach((btn, index) => {
+    btn.addEventListener('click', function (e) {
+        document.querySelectorAll('.inner-main-page1-ele').forEach((btn, index) => {
+            btn.style.border = 'none'
+        })
+        let button = e.target.closest('.inner-main-page1-ele')
+        button.style.border = '2px solid white'
+    })
+})
+
+addItemBtn.addEventListener('click', openAddItemForm)
+
+addItemFormClose.addEventListener('click', closeAddItemForm)
+
+addItemFormBtn.addEventListener('click', function () {
+    let productName = document.getElementById('product-name').value
+    let productPrice = document.getElementById('product-price').value
+    let productCategory = document.getElementById('product-category').value
+    let productImg = document.getElementById('product-img').value
+    let Oripath = ''
+    let fakeImgPath = ''
+    for (let i = 0; i <= productImg.length; i++) {
+        if (productImg[i] == '\\' || i == productImg.length) {
+            Oripath = fakeImgPath;
+            fakeImgPath = ''
+        }
+        else {
+            fakeImgPath += productImg[i];
+        }
+    }
+
+    for (let i = 1; i < localStorage.length; i++) {
+        let dataFetched = JSON.parse(localStorage[i])
+        if (dataFetched.logined == 1) {
+            let dataToEnter = {
+                'productName': productName,
+                'productPrice': productPrice,
+                'productCategory': productCategory,
+                'productImg': Oripath
+            }
+            dataFetched.marketPlace.push(dataToEnter)
+            localStorage.setItem(i, JSON.stringify(dataFetched))
+            break;
+        }
+    }
+    showAllItem()
+    closeAddItemForm();
+})
+
+filterBtnOpen.addEventListener('click', function () {
+    filterBox.style.display = 'flex'
+})
+
+filterBtnClose.addEventListener('click', function () {
+    filterBox.style.display = 'none'
+})
+
 filterBtn.addEventListener('click', function (e) {
     e.preventDefault();
     let filterHostelName = document.getElementById('filterHostelName').value
@@ -532,6 +541,9 @@ filterBtn.addEventListener('click', function (e) {
     document.getElementById('filterHostelName').value = ''
     document.getElementById('filterFloorNum').value = ''
 })
+
+
+// Event listener to remove items ----->
 
 document.getElementById('inner-main2-page2').addEventListener('click', function (e) {
     if (e.target.closest('.removeItemBtn')) {
@@ -554,6 +566,9 @@ document.getElementById('inner-main2-page2').addEventListener('click', function 
         }
     }
 });
+
+
+// Event listener to fetch all details of product after clicking on details button -----> 
 
 document.getElementById('inner-main2-page2').addEventListener('click', function (e) {
     if (e.target.closest('.details-button')) {
@@ -581,6 +596,9 @@ document.getElementById('inner-main2-page2').addEventListener('click', function 
         document.getElementById('product-Img').src = `../images/${imageUrl}`;
     }
 });
+
+
+// Event listener to close detail box -----> 
 
 document.getElementById('detail-box-close').addEventListener('click', function () {
     document.getElementById('details-box').style.display = 'none';
