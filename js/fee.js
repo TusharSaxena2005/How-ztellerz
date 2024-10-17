@@ -1,3 +1,4 @@
+//All animation ------>
 
 gsap.to("#page1 #name", {
     transform: "translateX(-55%)",
@@ -33,6 +34,9 @@ gsap.from("#meet-team", {
     }
 })
 
+
+// Explore button functionality ------>
+
 document.getElementById('explore-btn').addEventListener('click', function () {
     for (let i = 1; i < localStorage.length; i++) {
         let dataFetched = JSON.parse(localStorage[i])
@@ -44,6 +48,3 @@ document.getElementById('explore-btn').addEventListener('click', function () {
         }
     }
 })
-
-
-
