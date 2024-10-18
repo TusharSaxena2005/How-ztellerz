@@ -338,7 +338,7 @@ body {
 }
 
 #inner-profile-username h2,
-#inner-profile-username h2 span,
+#inner-profile-username h2 span, 
 #inner-profile-username p span {
     font-size: 2rem;
     color: rgb(222, 222, 222);

@@ -17,3 +17,7 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
     localStorage.setItem(localStorage.length, JSON.stringify(data))
     window.location = '../html/explore.html'
 })
+
+document.getElementById('logo').addEventListener('click', function () {
+    window.location = "../index.html"
+})

@@ -11,9 +11,12 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
                 window.location = "../html/explore.html"
             }
             else {
-                alert('Invalid Password')
+                alert('Invalid Creadiantials')
             }
-        } 
+        }
     }
 })
 
+document.getElementById('logo').addEventListener('click', function () {
+    window.location = "../index.html"
+})

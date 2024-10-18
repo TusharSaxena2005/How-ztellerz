@@ -74,7 +74,8 @@ main {
 
 #main-block form input:focus {
     outline: none;
-    border: 3px solid rgb(255, 119, 0);
+    border: 3px solid orangered;
+    transition: all 0.5s ease-in-out;
 }
 
 #submit-btn {
@@ -103,7 +104,7 @@ main {
 }
 
 .forgot:hover {
-    color: #ff5900;
+    color: orangered;
 }
 
 

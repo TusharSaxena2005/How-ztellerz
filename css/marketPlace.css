@@ -287,7 +287,7 @@ body {
     background-color: #333;
 }
 
-.removeItemBtn:hover{
+.removeItemBtn:hover {
     background-color: #d01717;
 }
 
@@ -642,7 +642,7 @@ body {
 }
 
 #profile-sideBar2 {
-    width: 100%;
+    width: 95%;
     height: 94%;
     margin-top: 15px;
     display: none;
@@ -780,6 +780,10 @@ body {
         width: 90%;
         height: 70%;
     }
+
+    #inner-profile-pic {
+        width: 131px;
+    }
 }
 
 @media only screen and (max-width:600px) {
@@ -822,6 +826,10 @@ body {
     #filter-btn {
         display: block;
     }
+    #filterHostelName option,
+    #filterFloorNum option{
+        font-size: 0.8rem;
+    }
 
     #inner-details-box {
         width: 90%;
@@ -847,4 +855,32 @@ body {
     #inner1-detail-box2 {
         height: 40%;
     }
+
+    .inner-profile-sideBar2-ele {
+        flex-direction: column;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    #inner-profile-pic {
+        width: 70px;
+        height: 70px;
+        margin-left: 0;
+    }
+
+    #inner-profile-username h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #inner-profile-username h2,
+    #inner-profile-username h2 span {
+        font-size: 1.5rem;
+    }
+
+    #inner-profile-username {
+        height: 37%;
+    }
+
 }
