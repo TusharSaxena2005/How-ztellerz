@@ -16,20 +16,36 @@
         <div id="main-block">
             <form id="signup-form" action="">
                 <div>
-                    <input id="username" type="text" placeholder="User Name">
-                    <input id="rollno" type="number" placeholder="Roll No.">
+                    <input id="username" type="text" placeholder="User Name" required>
+                    <input id="rollno" type="number" placeholder="Roll No." required>
                 </div>
                 <div>
-                    <input id="phoneNo" type="number" placeholder="Phone No.">
-                    <input id="email" type="email" placeholder="Email">
+                    <input id="phoneNo" type="number" placeholder="Phone No." required>
+                    <input id="email" type="email" placeholder="Email" required>
                 </div>
                 <div>
-                    <input id="password" type="password" placeholder="Create Password">
-                    <input id="hostelName" type="text" placeholder="Hostel Name">
+                    <input id="password" type="password" placeholder="Create Password" required>
+                    <!-- <input id="hostelName" type="text" placeholder="Hostel Name"> -->
+                    <select name="hostel" id="hostelName" required>
+                        <option value="" selected>Choose hostel</option>
+                        <option value="Archimedes A">Archimedes A</option>
+                        <option value="Archimedes B">Archimedes B</option>
+                        <option value="Armstrong">Armstrong</option>
+                        <option value="Aristotle">Aristotle</option>
+                        <option value="Columbus">Columbus</option>
+                        <option value="Franklin A">Franklin A</option>
+                        <option value="Franklin B">Franklin B</option>
+                        <option value="IBN">IBN</option>
+                        <option value="Marcopolo">Marcopolo</option>
+                        <option value="Megalan">Megalan</option>
+                        <option value="Nightingale">Nightingale</option>
+                        <option value="Pie">Pie</option>
+                        <option value="Vasco">Vasco</option>
+                    </select>
                 </div>
                 <div>
-                    <input id="floorNum" type="number" placeholder="Floor No. (Ex.:- 1)">
-                    <input id="roomNum" type="number" placeholder="Room No. (Ex.:- 101)">
+                    <input id="floorNum" type="number" placeholder="Floor No. (Ex.:- 1)" required>
+                    <input id="roomNum" type="number" placeholder="Room No. (Ex.:- 101)" required>
                 </div>
                 <!-- Add type="button" to avoid form's default submission -->
                 <button id="submit-btn" type="button">

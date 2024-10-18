@@ -40,6 +40,7 @@ main {
 
 #logo {
     width: 200px;
+    cursor: pointer;
 }
 
 #main-block {
@@ -69,7 +70,8 @@ main {
     align-items: center;
 }
 
-#main-block form div input {
+#main-block form div input,
+#hostelName {
     width: 45%;
     height: 100%;
     border-radius: 20px;
@@ -78,6 +80,16 @@ main {
     background-color: #484747a6;
     font-size: 1rem;
     color: white;
+}
+
+#hostelName {
+    width: 47%;
+    color: gray;
+}
+
+#hostelName option {
+    color: white;
+    background-color: #000000a6;
 }
 
 #main-block form div input:focus {
@@ -115,12 +127,18 @@ main {
     color: #ff5900;
 }
 
+#hostelName:focus {
+    outline: none;
+    border: 2px solid orangered;
+    transition: all 0.5s ease-in-out;
+}
+
 @media only screen and (max-width:400px) {
     #main-block {
-        min-width: 350px;
+        width: 100%;
     }
 
-    #main-block{
+    #main-block {
         height: 115vh;
     }
 
@@ -130,8 +148,8 @@ main {
         flex-direction: column;
     }
 
-    #main-block form div input{
+    #main-block form div input {
         border-radius: 13px;
-        width: 60%;
+        width: 80%;
     }
 }
