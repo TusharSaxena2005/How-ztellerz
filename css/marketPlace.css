@@ -233,7 +233,7 @@ body {
     width: 5px;
 }
 
-.outer-cars {
+.outer-cars,.profile-outer-cars {
     width: 200px;
     height: 320px;
     background-color: black;
@@ -246,16 +246,29 @@ body {
     /* display: none; */
 }
 
-.outer-cars img {
+.profile-outer-cars{
+    height: 180px;
+    width: 170px;
+}
+
+.outer-cars img,.pImage {
     height: 55%;
     max-width: 90%;
 }
 
-.outer-cars p {
+.pImage{
+    height: 43%;
+}
+
+.outer-cars p{
     font-size: 1.1rem;
 }
 
-.outer-cars div {
+.profile-outer-cars p{
+    font-size: 1rem;
+}
+
+.outer-cars div,.profile-outer-cars div {
     height: 11%;
     display: flex;
     justify-content: space-around;
@@ -263,11 +276,15 @@ body {
     width: 100%;
 }
 
+.profile-outer-cars div{
+    height: 15%;
+}
+
 .details-button,
 .removeItemBtn {
     height: 100%;
     width: 70%;
-    background-color: transparent;
+    background-color: #1a1919;
     border: 1px solid;
     border-radius: 20px;
     cursor: pointer;
@@ -281,6 +298,10 @@ body {
     justify-content: center;
     background-color: #8a1616;
     align-items: center;
+}
+
+.profileremoveBtn img{
+    width: 60%;
 }
 
 .details-button:hover {
@@ -504,7 +525,7 @@ body {
 .formInput:focus {
     outline: none;
     border: 2px solid orangered;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.8s ease-in-out;
 }
 
 #add-item-box2 form select {
@@ -657,7 +678,7 @@ body {
     background-color: black;
     border-radius: 10px;
     width: 96.5%;
-    min-height: 200px;
+    min-height: 140px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -667,7 +688,7 @@ body {
 
 #inner-profile-pic {
     border: 3px solid;
-    width: 15%;
+    width: 11%;
     height: 65%;
     display: flex;
     justify-content: center;
@@ -681,7 +702,7 @@ body {
 }
 
 #inner-profile-username {
-    height: 50%;
+    height: 64%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -730,11 +751,12 @@ body {
 }
 
 #inner-posts {
-    width: 95%;
-    height: 87%;
+    width: 98%;
+    height: 95%;
     overflow-y: scroll;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 20px;
 }
 
@@ -846,7 +868,7 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: start;
-    }
+    } 
 
     .inner-detail-box2 {
         width: 90%;
@@ -857,8 +879,17 @@ body {
         height: 40%;
     }
 
+    #inner-posts{
+        justify-content: center;
+    }
+
     #profile-sideBar2 {
         width: 95%;
+    }
+
+    .profile-outer-cars{
+        margin: 10px 0 0 0;
+        width: 90%;
     }
 
     .inner-profile-sideBar2-ele {
@@ -868,8 +899,8 @@ body {
     }
 
     #inner-profile-pic {
-        width: 70px;
-        height: 70px;
+        width: 45px;
+        height: 44px;
         margin-left: 0;
     }
 
@@ -885,7 +916,7 @@ body {
     }
 
     #inner-profile-username {
-        height: 37%;
+        height: 43%;
     }
 
 }

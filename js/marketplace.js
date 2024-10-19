@@ -21,6 +21,7 @@ let logout = document.getElementById('logout')
 
 showAllItem()
 
+
 // All functions start from here ----->
 
 function showAllItem() {
@@ -389,6 +390,37 @@ function openProfilePage() {
             document.getElementById('profile-username').innerHTML = dataFetched.username;
             document.getElementById('rollno').innerHTML = dataFetched.rollNum;
             document.getElementById('hostelName').innerHTML = dataFetched.hostelName;
+            document.getElementById('inner-posts').innerHTML = ''
+            if (dataFetched.marketPlace.length > 0) {
+                for (let j = 0; j < dataFetched.marketPlace.length; j++) {
+                    let pName = dataFetched.marketPlace[j].productName
+                    let pPrice = dataFetched.marketPlace[j].productPrice
+                    let pCategory = dataFetched.marketPlace[j].productCategory
+                    let pImgURL = dataFetched.marketPlace[j].productImg
+                    let sName = dataFetched.username
+                    let sHostelName = dataFetched.hostelName
+                    let sFloor = dataFetched.floorNum
+                    let sRoom = dataFetched.roomNum
+                    let sContact = dataFetched.phoneNum
+                    if (dataFetched.username == sName) {
+                        document.getElementById('inner-posts').innerHTML += `
+                        <li id="outer-card1" class="profile-outer-cars" data-name="${pName}" data-price="${pPrice}" data-floor="${sFloor}"
+                            data-room="${sRoom}" data-hostel-name="${sHostelName}" data-category="${pCategory}" data-seller="${sName}"
+                            data-contact="${sContact}" data-imageURL="../images/${pImgURL}">
+                            <img class="pImage" src="../images/${pImgURL}" alt="">
+                            <p>${pName}</p>
+                            <p>${pPrice} Rs.</p>
+                            <div>
+                                <button class="details-button">Details</button>
+                                <button class="removeItemBtn profileremoveBtn">
+                                    <img src="../images/delete.svg" alt="">
+                                </button>
+                            </div>
+                        </li>
+                        `
+                    }
+                }
+            }
         }
     }
 }
@@ -543,11 +575,17 @@ filterBtn.addEventListener('click', function (e) {
 })
 
 
+
 // Event listener to remove items ----->
 
 document.getElementById('inner-main2-page2').addEventListener('click', function (e) {
     if (e.target.closest('.removeItemBtn')) {
-        const product = e.target.closest('.outer-cars');
+        if (document.getElementById('profile-sideBar2').style.display == 'flex') {
+            product = e.target.closest('.profile-outer-cars');
+        }
+        else {
+            product = e.target.closest('.outer-cars');
+        }
         const productName = product.getAttribute('data-name');
 
         for (let i = 1; i < localStorage.length; i++) {
@@ -559,7 +597,7 @@ document.getElementById('inner-main2-page2').addEventListener('click', function 
                     myArray.splice(indexToRemove, 1);
                     dataFetched.marketPlace = myArray;
                     localStorage.setItem(i, JSON.stringify(dataFetched));
-                    showAllItem();
+                    openProfilePage();
                     break;
                 }
             }
@@ -572,7 +610,13 @@ document.getElementById('inner-main2-page2').addEventListener('click', function 
 
 document.getElementById('inner-main2-page2').addEventListener('click', function (e) {
     if (e.target.closest('.details-button')) {
-        const product = e.target.closest('.outer-cars');
+        let product;
+        if (document.getElementById('profile-sideBar2').style.display == 'flex') {
+            product = e.target.closest('.profile-outer-cars');
+        }
+        else {
+            product = e.target.closest('.outer-cars');
+        }
         const name = product.getAttribute('data-name');
         const price = product.getAttribute('data-price');
         const hostel = product.getAttribute('data-hostel-name');
